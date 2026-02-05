@@ -25,16 +25,25 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero" aria-labelledby="gk-hero">
-    <!-- Afbeelding: warme hotelomgeving (hergebruik) -->
-    <!-- Beeld toont de rustige buitenomgeving en hotelgevel bij zonsopgang -->
-    <img src="images/hero-ai.jpg" alt="Hotel Aurora: rustige gevel en tuin bij zonsopgang" class="hero-media" />
-    <div class="container" style="position:relative; z-index:2; padding:var(--space-lg) 0;">
+  <!-- Hero-beeld (vervang src door je eigen foto indien gewenst) -->
+  <img src="images/hero-ai.jpg" alt="Hotel Aurora: rustige gevel en tuin bij zonsopgang" class="hero-media" />
+
+  <!-- Subtiele overlay voor betere leesbaarheid -->
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="container" style="position:relative; z-index:2; padding:var(--space-lg) 0;">
+    <div class="hero-content">
       <h1 id="gk-hero">Gastenboek</h1>
-      <p class="lead" style="max-width:65ch;">Lees eerlijke ervaringen van gasten die bij ons verbleven. Deel gerust uw indrukken — uw feedback helpt ons verbeteren en inspireert toekomstige bezoekers.</p>
+      <p class="lead">Lees eerlijke ervaringen van gasten die bij ons verbleven. Deel uw indrukken — uw feedback helpt ons verbeteren en geeft toekomstige bezoekers een realistisch beeld van het verblijf.</p>
+
+      <div style="margin-top:1rem;">
+        <a class="button primary" href="#review-form-heading" aria-label="Plaats een review">Plaats een review</a>
+        <a class="button ghost" href="#reviews-heading" aria-label="Bekijk recensies">Bekijk recensies</a>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <main>
     <section class="section">

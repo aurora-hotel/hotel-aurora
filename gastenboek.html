@@ -29,7 +29,7 @@
   </style>
 </head>
 <body>
-  <!-- Header (consistent across site) -->
+  <!-- Header (identiek aan andere pagina's) -->
   <header class="header" id="site-header">
     <div class="container header-inner">
       <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Hotel Aurora</a></div>
@@ -49,7 +49,7 @@
   <section class="hero" aria-labelledby="gk-hero">
     <!-- Afbeelding: warme hotelomgeving (hergebruik) -->
     <!-- Beeld toont de rustige buitenomgeving en hotelgevel bij zonsopgang -->
-    <img src="images/hero-ai.jpg" alt="Hotel Aurora: rustige gevel en tuin bij zonsopgang" class="hero-media" />
+    <img src="images/gastenboek-ai.jpg" alt="Hotel Aurora: rustige gevel en tuin bij zonsopgang" class="hero-media" />
     <div class="container" style="position:relative; z-index:2; padding:var(--space-lg) 0;">
       <h1 id="gk-hero">Gastenboek</h1>
       <p class="lead" style="max-width:65ch;">Lees eerlijke ervaringen van gasten die bij ons verbleven. Deel gerust uw indrukken — uw feedback helpt ons verbeteren en inspireert toekomstige bezoekers.</p>
@@ -63,7 +63,7 @@
           <div>
             <div class="kicker">Ervaringen</div>
             <h2 style="margin-top:.5rem;">Wat gasten over ons zeggen</h2>
-            <p class="sr-note" style="margin-top:.5rem;">Gemiddelde beoordeling gebaseerd op recente inzendingen.</p>
+            <p class="sr-note" style="margin-top:.5rem;">Gemiddelde beoordeling gebaseerd op recente inzendingen. Alle reviews zijn openbaar en frontend-only opgeslagen.</p>
           </div>
 
           <div style="display:flex; gap:var(--space); align-items:center;">
@@ -89,7 +89,8 @@
         <section aria-labelledby="review-form-heading" style="margin-top:var(--space-lg);">
           <div class="kicker">Plaats een review</div>
           <h3 id="review-form-heading" style="margin-top:.5rem;">Deel uw ervaring</h3>
-          
+          <p class="prose" style="margin-top:.5rem;">Uw review helpt ons verbeteren en biedt toekomstige gasten een realistisch beeld van hun verblijf. We tonen alleen voornaam + initiaal en de tekst (geen e-mails publiekelijk).</p>
+
           <div class="apply-card" style="margin-top:var(--space);">
             <form id="review-form" onsubmit="addReview(event)">
               <div class="apply-grid" style="grid-template-columns: 1fr 140px;">

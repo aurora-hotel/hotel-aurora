@@ -510,3 +510,100 @@ label { font-weight:600; color: var(--color-deep-green); font-size: .95rem; }
 .calendar-wrap { overflow:auto; -webkit-overflow-scrolling:touch; padding-bottom:.5rem; }
 
 /* End of file */
+/* style.css
+   Updates: strakkere vacature-layout + featured vacancy styles
+   Voeg deze wijzigingen in onderaan je bestaande style.css of vervang de oude sectie.
+*/
+
+/* Vacatures: strakkere, overzichtelijke presentatie */
+.vacancies-wrap {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+/* Featured vacature - prominent, full-width card */
+.featured-vacancy .card {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: var(--space-lg);
+  align-items: stretch;
+  padding: calc(var(--space) * 1.25);
+}
+@media (max-width: 980px) {
+  .featured-vacancy .card { grid-template-columns: 1fr; }
+}
+
+/* Featured image styling */
+.featured-vacancy .card .media {
+  height: 100%;
+  min-height: 280px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Meta + CTA column for featured */
+.featured-side {
+  display:flex;
+  flex-direction:column;
+  gap:var(--space);
+  justify-content:center;
+}
+
+/* Smaller, cleaner meta text */
+.featured-side .meta {
+  color: var(--color-muted);
+  font-size: .95rem;
+}
+.featured-side .benefits {
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:.5rem;
+}
+
+/* Two-column compact list below the featured */
+.vacancy-grid.two {
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:var(--space-lg);
+}
+@media (max-width: 860px) {
+  .vacancy-grid.two { grid-template-columns: 1fr; }
+}
+
+/* Compact vacancy card variant */
+.card.vacancy-compact {
+  display:flex;
+  gap:var(--space);
+  align-items:flex-start;
+  padding: var(--space);
+}
+.vacancy-compact .media {
+  width:120px;
+  height:88px;
+  border-radius:8px;
+  flex:0 0 120px;
+  object-fit:cover;
+}
+.vacancy-compact h4 { margin:0; font-size:1.05rem; }
+.vacancy-compact .meta { font-size:.9rem; color:var(--color-muted); margin-top:.35rem; }
+
+/* Visual tidy: reduce padding of vacancy details for compactness */
+.vacancy-compact p { margin:.4rem 0 0 0; color:#333; font-size:.96rem; }
+
+/* Clear call-to-action styling for vacancy buttons */
+.vacancy-ctas { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem; }
+.vacancy-ctas .button { padding:.45rem .75rem; font-size:.95rem; border-radius:8px; }
+
+/* Separator and small helper */
+.vac-sep { height:1px; background:rgba(0,0,0,0.04); margin:var(--space-lg) 0; border-radius:2px; }
+
+/* Accessibility: focus for vacancy links */
+.card a:focus-visible, .button:focus-visible {
+  outline: 3px solid rgba(15,59,45,0.18);
+  outline-offset: 3px;
+}
+
+/* Slightly tighten the container for vacancy section text */
+.vacancy-intro .prose { max-width:60ch; }
+
+/* End of vacancy layout updates */

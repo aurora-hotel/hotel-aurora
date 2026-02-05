@@ -32,7 +32,7 @@
 
         <div class="vacancies-wrap" style="margin-top:1.25rem;">
 
-          <!-- Featured vacancy: Schoonmaker -->
+          <!-- Featured vacancy: Schoonmaker (merged details inside card) -->
           <section class="featured-vacancy" aria-labelledby="feat-title">
             <h2 id="feat-title" style="margin:0 0 .6rem 0;">Uitgelicht: Schoonmaker</h2>
             <div class="card" role="region" aria-label="Uitgelichte vacature Schoonmaker">
@@ -47,37 +47,43 @@
                   <h3 style="margin:0 0 .25rem 0;">Schoonmaker</h3>
                   <div class="meta">16–28 uur • Hotel Aurora • Start: zo snel mogelijk</div>
 
-                  <p style="margin-top:.75rem;">Wij zoeken een nauwkeurige en betrouwbare schoonmaker die verantwoordelijk is voor kamers en publieke ruimtes. Je werkt in de ochtend/voormiddag en zorgt dat onze gasten elke dag een frisse en verzorgde omgeving ervaren.</p>
+                  <p style="margin-top:.6rem;">Wij zoeken een nauwkeurige en betrouwbare schoonmaker die verantwoordelijk is voor kamers en publieke ruimtes. Je werkt in de ochtend/voormiddag en zorgt dat onze gasten elke dag een frisse en verzorgde omgeving ervaren.</p>
 
-                  <div class="benefits" style="margin-top:.6rem;">
-                    <ul style="margin:0; padding-left:1rem;">
-                      <li>Vast ochtendrooster (in overleg)</li>
-                      <li>Personeelskortingen en opleidingsmogelijkheden</li>
-                      <li>Werk in een klein betrokken team</li>
-                    </ul>
+                  <div class="featured-lists" style="margin-top:.6rem;">
+                    <div>
+                      <strong>Wat je gaat doen</strong>
+                      <ul>
+                        <li>Dagelijkse schoonmaak van kamers volgens checklist</li>
+                        <li>Schoonhouden van publieke ruimtes en bijhouden van voorraden</li>
+                        <li>Melden van onderhoudsproblemen en meedenken in verbetering</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <strong>Wat we zoeken</strong>
+                      <ul>
+                        <li>Nauwkeurig, betrouwbaar en klantvriendelijk</li>
+                        <li>Ervaring is een pre maar niet verplicht</li>
+                        <li>Beschikbaarheid in de ochtend</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <strong>Wat we bieden</strong>
+                      <ul>
+                        <li>Vast ochtendrooster (in overleg)</li>
+                        <li>Personeelskortingen en opleidingsmogelijkheden</li>
+                        <li>Werk in een klein betrokken team</li>
+                      </ul>
+                    </div>
                   </div>
 
                   <div class="vacancy-ctas" style="margin-top:.8rem;">
                     <button class="button primary" onclick="prefillRole('Schoonmaker'); scrollToApply();">Solliciteer nu</button>
-                    <a class="button ghost" href="#schoonmaker-desc">Lees functieomschrijving</a>
+                    <a class="button ghost" href="#apply">Solliciteer via formulier</a>
                   </div>
                 </div>
               </aside>
-            </div>
-
-            <div id="schoonmaker-desc" style="margin-top:.9rem; padding:.8rem; background:linear-gradient(180deg,#fff,#fbfbfb); border-radius:10px; border:1px solid rgba(0,0,0,0.03);">
-              <strong>Wat je gaat doen</strong>
-              <ul>
-                <li>Dagelijkse schoonmaak van kamers volgens checklist</li>
-                <li>Schoonhouden van publieke ruimtes en bijhouden van voorraden</li>
-                <li>Melden van onderhoudsproblemen en meedenken in verbetering</li>
-              </ul>
-              <strong>Wat we zoeken</strong>
-              <ul>
-                <li>Nauwkeurig, betrouwbaar en klantvriendelijk</li>
-                <li>Ervaring is een pre maar niet verplicht</li>
-                <li>Beschikbaarheid in de ochtend</li>
-              </ul>
             </div>
           </section>
 
@@ -97,7 +103,7 @@
                   <p>Verantwoordelijk voor het starten van de dag van onze gasten: ontbijtservice, tafelopmaak en gastcontact, met aandacht voor lokale producten.</p>
                   <div class="vacancy-ctas">
                     <button class="button primary" onclick="prefillRole('Bediening & Ontbijt'); scrollToApply();">Solliciteer</button>
-                    <a class="button ghost" href="#bediening-desc">Meer</a>
+                    <a class="button ghost" href="#apply">Meer</a>
                   </div>
                 </div>
               </article>
@@ -111,59 +117,62 @@
                   <p>Assisteert bij gastverzoeken, lokale tips en coördinatie van activiteiten. Ideaal voor iemand met liefde voor regio en gastvrijheid.</p>
                   <div class="vacancy-ctas">
                     <button class="button primary" onclick="prefillRole('Concierge Assistant'); scrollToApply();">Solliciteer</button>
-                    <a class="button ghost" href="#concierge-desc">Meer</a>
+                    <a class="button ghost" href="#apply">Meer</a>
                   </div>
                 </div>
               </article>
-            </div>
-
-            <!-- Optional descriptions (hidden anchors) -->
-            <div id="bediening-desc" style="margin-top:.9rem; display:none;">
-              <strong>Bediening — Taken</strong>
-              <ul>
-                <li>Voorbereiden en serveren van ontbijt</li>
-                <li>Contact met gasten en kleine huishoudelijke taken</li>
-                <li>Samenwerken met keuken en receptie</li>
-              </ul>
-            </div>
-
-            <div id="concierge-desc" style="margin-top:.9rem; display:none;">
-              <strong>Concierge Assistant — Taken</strong>
-              <ul>
-                <li>Advies en reserveringen voor lokale activiteiten</li>
-                <li>Organiseren van transfers en kleine evenementen</li>
-                <li>Samenwerking met leveranciers en gidsen</li>
-              </ul>
             </div>
           </section>
 
         </div> <!-- end vacancies-wrap -->
 
-        <!-- Sollicitatieformulier (onderaan) -->
+        <!-- Sollicitatieformulier (onderaan) - verbeterde opmaak -->
         <section id="apply" style="margin-top:1.5rem;">
           <h3>Solliciteer direct</h3>
-          <p class="prose" style="margin-top:.5rem;">Vul onderstaand formulier in.</p>
+          <p class="prose" style="margin-top:.5rem; text-align:center;">Vul onderstaand formulier in. Dit is een frontend-only formulier; bij succesvolle validatie tonen we een bevestiging.</p>
 
-          <form id="apply-form" class="form" style="margin-top:1rem; max-width:720px;" onsubmit="submitApplication(event)">
-            <label for="app-name">Naam</label>
-            <input id="app-name" class="input" required />
+          <div class="apply-card" role="form" aria-labelledby="apply-heading">
+            <form id="apply-form" onsubmit="submitApplication(event)">
+              <div class="apply-grid">
+                <div>
+                  <label for="app-name">Naam</label>
+                  <input id="app-name" class="input" placeholder="Voor- en achternaam" required />
+                </div>
 
-            <label for="app-email">E-mail</label>
-            <input id="app-email" type="email" class="input" required />
+                <div>
+                  <label for="app-email">E-mail</label>
+                  <input id="app-email" type="email" class="input" placeholder="naam@voorbeeld.nl" required />
+                </div>
 
-            <label for="app-role">Gewenste rol</label>
-            <input id="app-role" class="input" placeholder="Bijv. Schoonmaker" required />
+                <div>
+                  <label for="app-role">Gewenste rol</label>
+                  <input id="app-role" class="input" placeholder="Bijv. Schoonmaker" required />
+                </div>
 
-            <label for="app-message">Motivatie (kort)</label>
-            <textarea id="app-message" class="input" rows="5" required></textarea>
+                <div>
+                  <label for="guests-availability">Beschikbaarheid</label>
+                  <select id="guests-availability" class="input" aria-label="Beschikbaarheid">
+                    <option>Ochtend</option>
+                    <option>Middag</option>
+                    <option>Weekend</option>
+                    <option>Flexibel</option>
+                  </select>
+                </div>
 
-            <div style="display:flex; gap:.75rem; margin-top:.5rem;">
-              <button class="button primary" type="submit">Verstuur sollicitatie</button>
-              <button class="btn-ghost" type="button" onclick="document.getElementById('apply-form').reset();">Reset</button>
-            </div>
+                <div style="grid-column: 1 / -1;">
+                  <label for="app-message">Motivatie (kort)</label>
+                  <textarea id="app-message" class="input" rows="5" placeholder="Kort iets over jezelf en waarom deze rol bij jou past" required></textarea>
+                </div>
+              </div>
 
-            <div id="apply-feedback" aria-live="polite" style="margin-top:.75rem;"></div>
-          </form>
+              <div class="apply-actions">
+                <button class="button primary" type="submit">Verstuur sollicitatie</button>
+                <button class="btn-ghost" type="button" onclick="document.getElementById('apply-form').reset();">Reset</button>
+              </div>
+
+              <div id="apply-feedback" aria-live="polite"></div>
+            </form>
+          </div>
         </section>
       </div>
     </section>
@@ -199,11 +208,12 @@
       onScroll();
     })();
 
-    // Helper: scroll to apply form
+    // Helper: scroll to apply form and focus first field
     function scrollToApply(){
-      const form = document.getElementById('apply');
-      form.scrollIntoView({behavior:'smooth', block:'start'});
-      document.getElementById('app-name').focus();
+      const el = document.getElementById('apply');
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+      setTimeout(()=>{ document.getElementById('app-name').focus(); }, 600);
     }
 
     // Prefill role when clicking "Solliciteer" buttons
@@ -224,6 +234,7 @@
       if(!name.value.trim() || !email.checkValidity() || !role.value.trim() || !msg.value.trim()){
         fb.style.color = 'crimson';
         fb.textContent = 'Controleer of alle velden correct zijn ingevuld.';
+        fb.scrollIntoView({behavior:'smooth', block:'center'});
         return;
       }
 
@@ -232,18 +243,6 @@
       // Reset form after a short delay
       setTimeout(()=>{ document.getElementById('apply-form').reset(); }, 1200);
     }
-
-    // Optional: toggle hidden descriptions (progressive enhancement)
-    document.querySelectorAll('a[href^="#bediening-desc"], a[href^="#concierge-desc"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        e.preventDefault();
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(!el) return;
-        el.style.display = el.style.display === 'none' || el.style.display === '' ? 'block' : 'none';
-        el.scrollIntoView({behavior:'smooth', block:'center'});
-      });
-    });
   </script>
 </body>
 </html>

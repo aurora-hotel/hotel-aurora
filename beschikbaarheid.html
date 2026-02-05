@@ -74,43 +74,58 @@
       </div>
     </section>
 
-    <section id="reserve" class="section" aria-labelledby="reserve-heading">
-      <div class="container">
-        <div class="kicker">Reserveren</div>
-        <h2 id="reserve-heading" style="margin-top:.5rem;">Boek uw verblijf</h2>
-        <p class="prose" style="margin-top:1rem;">Kies uw aankomst- en vertrekdatum. Als uw periode overlapt met een volgeboekte dag, krijgt u direct een foutmelding en suggesties om te wijzigen.</p>
 
-        <form id="booking-form" class="form" style="max-width:520px; margin-top:1rem;" onsubmit="submitBooking(event)">
-          <label for="checkin">Aankomstdatum</label>
-          <input id="checkin" class="input" type="date" required />
+    
+   <section id="reserve" class="section" aria-labelledby="reserve-heading">
+  <div class="container">
+    <div class="kicker">Reserveren</div>
+    <h2 id="reserve-heading" style="margin-top:.5rem;">Boek uw verblijf</h2>
+    <p class="prose" style="margin-top:1rem;">Kies uw aankomst- en vertrekdatum. Als uw periode overlapt met een volgeboekte dag, krijgt u direct een foutmelding en suggesties om te wijzigen.</p>
 
-          <label for="checkout">Vertrekdatum</label>
-          <input id="checkout" class="input" type="date" required />
-
-          <label for="guests">Aantal gasten</label>
-          <select id="guests" class="input" required>
-            <option value="1">1 gast</option>
-            <option value="2">2 gasten</option>
-            <option value="3">3 gasten</option>
-            <option value="4">4 gasten</option>
-          </select>
-
-          <div style="display:flex; gap:.75rem; margin-top:.5rem;">
-            <button class="button primary" type="submit">Controleer & Reserveer</button>
-            <button class="btn-ghost" type="button" onclick="document.getElementById('booking-form').reset();">Reset</button>
+    <div class="apply-card" style="margin-top:1rem;" role="form" aria-labelledby="reserve-heading">
+      <form id="booking-form" onsubmit="submitBooking(event)">
+        <div class="apply-grid">
+          <div>
+            <label for="checkin">Aankomstdatum</label>
+            <input id="checkin" class="input" type="date" required />
           </div>
 
-          <div id="booking-feedback" aria-live="polite" style="margin-top:.75rem;"></div>
-        </form>
+          <div>
+            <label for="checkout">Vertrekdatum</label>
+            <input id="checkout" class="input" type="date" required />
+          </div>
 
-        <div style="margin-top:1.5rem;">
-          <h4>Opmerking</h4>
-          <p class="prose">Dit is een demo-frontend: verzenden is niet gekoppeld aan een backend. De kalender en formuliervalidering tonen toegankelijke voorbeelden van beschikbaarheidscontrole.</p>
+          <div>
+            <label for="guests">Aantal gasten</label>
+            <select id="guests" class="input" required>
+              <option value="1">1 gast</option>
+              <option value="2" selected>2 gasten</option>
+              <option value="3">3 gasten</option>
+              <option value="4">4 gasten</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="contact-name">Naam (optioneel)</label>
+            <input id="contact-name" class="input" placeholder="Voor- en achternaam" />
+          </div>
+
+          <div style="grid-column: 1 / -1;">
+            <label for="contact-email">E-mail (optioneel)</label>
+            <input id="contact-email" class="input" type="email" placeholder="naam@voorbeeld.nl" />
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
 
+        <div class="apply-actions">
+          <button class="button primary" type="submit">Controleer & Reserveer</button>
+          <button class="btn-ghost" type="button" onclick="document.getElementById('booking-form').reset();">Reset</button>
+        </div>
+
+        <div id="booking-feedback" aria-live="polite" style="margin-top:.75rem;"></div>
+      </form>
+    </div>
+</section>
+    
   <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex; gap:var(--space-lg); flex-wrap:wrap; align-items:flex-start; padding-top:1.25rem; padding-bottom:1.25rem;">

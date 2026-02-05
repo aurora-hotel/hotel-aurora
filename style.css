@@ -555,3 +555,13 @@ a:focus, button:focus, input:focus, textarea:focus {
 .site-footer { margin-top: var(--space-lg); }
 
 /* End of file */
+/* --- Kamerpagina fixes: zorg dat content binnen .container blijft --- */
+.hero { min-height: 64vh; } /* gelijk aan andere pagina's */
+
+/* room media responsiveness: voorkom overflow, behoud vaste maat op desktop */
+.room-card .card-body { gap: var(--space); flex-wrap: wrap; }
+.room-media { width:100%; max-width:100%; height:auto; border-radius:12px; object-fit:cover; }
+@media (min-width:900px){
+  .room-card .card-body { flex-wrap: nowrap; }
+  .room-media { flex:0 0 420px; height:280px; }
+}

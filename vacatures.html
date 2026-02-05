@@ -8,38 +8,68 @@
   <meta name="description" content="Bekijk actuele vacatures bij Hotel Aurora — werken in hospitality, keuken en wellness.">
   <link rel="canonical" href="https://hotel-aurora.github.io/vacatures.html">
   <meta property="og:url" content="https://hotel-aurora.github.io/vacatures.html">
+  <style>
+    /* Pagina-kleine aanvullingen (indien style.css niet alles bevat) */
+    .featured-vacancy .card { display:grid; grid-template-columns: 1fr 420px; gap:var(--space-lg); align-items:stretch; padding:calc(var(--space)*1.25); }
+    @media (max-width:980px){ .featured-vacancy .card { grid-template-columns:1fr; } }
+    .featured-vacancy .media { height:100%; min-height:280px; border-radius:12px; object-fit:cover; }
+    .vacancy-grid.two { display:grid; gap:var(--space-lg); grid-template-columns:repeat(2,1fr); }
+    @media (max-width:860px){ .vacancy-grid.two { grid-template-columns:1fr; } }
+    .vacancy-compact .media { width:120px; height:88px; border-radius:8px; object-fit:cover; flex:0 0 120px; }
+    .apply-card { max-width:820px; margin: var(--space-lg) auto; padding: var(--space-lg); border-radius:12px; background:linear-gradient(180deg,#fff,#fbfbfb); border:1px solid rgba(0,0,0,0.04); box-shadow:0 10px 30px rgba(17,17,17,0.04); }
+    .apply-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--space); }
+    @media (max-width:860px){ .apply-grid{grid-template-columns:1fr;} }
+    .apply-actions { display:flex; gap:.75rem; margin-top:var(--space); justify-content:flex-end; }
+    @media (max-width:600px){ .apply-actions{flex-direction:column; } .apply-actions .button{width:100%;} }
+  </style>
 </head>
 <body>
+  <!-- Header (uniform) -->
   <header class="header" id="site-header">
     <div class="container header-inner">
       <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Hotel Aurora</a></div>
       <nav class="nav" aria-label="Hoofdmenu">
         <a href="index.html">Home</a>
+        <a href="kamers.html">Onze kamers</a>
+        <a href="faciliteiten.html">Faciliteiten</a>
         <a href="team.html">Ons team</a>
         <a href="vacatures.html" aria-current="page">Vacatures</a>
         <a href="gastenboek.html">Gastenboek</a>
-        <a class="cta" href="https://hotel-aurora.github.io/beschikbaarheid.html" role="button">Beschikbaarheid</a>
+        <a class="cta" href="beschikbaarheid.html" role="button">Beschikbaarheid</a>
       </nav>
     </div>
   </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="vac-hero">
+    <!-- Beeld: representatief hotelinterieur of sfeer -->
+    <!-- Afbeelding toont het warme interieur en uitnodigende sfeer -->
+    <img src="images/vacaturesheader-ai.jpg" alt="Hotel Aurora: rustige interieur- en exterieursfeer" class="hero-media" />
+    <div class="container" style="position:relative; z-index:2; padding:var(--space-lg) 0;">
+      <div class="hero-content">
+        <h1 id="vac-hero">Vacatures</h1>
+        <p class="lead">Werken bij Hotel Aurora betekent werken in een betrokken, kleinschalig team met aandacht voor kwaliteit en gastvrijheid. Hieronder vind je onze actuele vacatures.</p>
+      </div>
+    </div>
+  </section>
 
   <main>
     <section class="section">
       <div class="container">
         <div class="kicker">Vacatures</div>
-        <h1 style="margin-top:.5rem;">Werken bij Hotel Aurora</h1>
-        <p class="prose vacancy-intro" style="margin-top:1rem;">Wij zijn een kleinschalig boutique-hotel met aandacht voor sfeer en kwaliteit. Hieronder vind je onze vacatures — overzichtelijk gepresenteerd zodat je snel ziet wat past.</p>
+        <h2 style="margin-top:.5rem;">Kom ons team versterken</h2>
+        <p class="prose vacancy-intro" style="margin-top:1rem;">Wij zoeken betrokken collega’s die gastvrijheid en kwaliteit hoog in het vaandel hebben staan. Hieronder staat een uitgelichte vacature en enkele overige functies.</p>
 
         <div class="vacancies-wrap" style="margin-top:1.25rem;">
 
-          <!-- Featured vacancy: Schoonmaker (merged details inside card) -->
+          <!-- Featured: Schoonmaker -->
           <section class="featured-vacancy" aria-labelledby="feat-title">
             <h2 id="feat-title" style="margin:0 0 .6rem 0;">Uitgelicht: Schoonmaker</h2>
             <div class="card" role="region" aria-label="Uitgelichte vacature Schoonmaker">
               <div>
-                <!-- Afbeelding: lobby als sfeerbeeld voor schoonmaak/housekeeping -->
+                <!-- Afbeelding: lobby als sfeerbeeld voor housekeeping -->
                 <!-- Afbeelding toont schone, warme lobbyruimte -->
-                <img src="images/schoonamkervacature-ai.jpg" alt="Lobby van Hotel Aurora — representatief interieur" class="media" />
+                <img src="images/lobby-ai.jpg" alt="Lobby van Hotel Aurora — representatief interieur" class="media" />
               </div>
 
               <aside class="featured-side">
@@ -47,7 +77,7 @@
                   <h3 style="margin:0 0 .25rem 0;">Schoonmaker</h3>
                   <div class="meta">16–28 uur • Hotel Aurora • Start: zo snel mogelijk</div>
 
-                  <p style="margin-top:.6rem;">Wij zoeken een nauwkeurige en betrouwbare schoonmaker die verantwoordelijk is voor kamers en publieke ruimtes. Je werkt in de ochtend/voormiddag en zorgt dat onze gasten elke dag een frisse en verzorgde omgeving ervaren.</p>
+                  <p style="margin-top:.75rem;">Wij zoeken een nauwkeurige en betrouwbare schoonmaker die verantwoordelijk is voor kamers en publieke ruimtes. Je werkt in de ochtend/voormiddag en zorgt dat onze gasten elke dag een frisse en verzorgde omgeving ervaren.</p>
 
                   <div class="featured-lists" style="margin-top:.6rem;">
                     <div>
@@ -79,69 +109,102 @@
                   </div>
 
                   <div class="vacancy-ctas" style="margin-top:.8rem;">
-                    <button class="button primary" onclick="prefillRole('Schoonmaker'); scrollToApply();">Solliciteer nu</button>
-                    <a class="button ghost" href="#apply">Solliciteer via formulier</a>
+                    <a class="button primary" href="beschikbaarheid.html">Solliciteer nu</a>
+                    <a class="button ghost" href="#schoonmaker-desc">Lees functieomschrijving</a>
                   </div>
                 </div>
               </aside>
+            </div>
+
+            <div id="schoonmaker-desc" style="margin-top:.9rem; padding:.8rem; background:linear-gradient(180deg,#fff,#fbfbfb); border-radius:10px; border:1px solid rgba(0,0,0,0.03);">
+              <strong>Wat je gaat doen</strong>
+              <ul>
+                <li>Dagelijkse schoonmaak van kamers volgens checklist</li>
+                <li>Schoonhouden van publieke ruimtes en bijhouden van voorraden</li>
+                <li>Melden van onderhoudsproblemen en meedenken in verbetering</li>
+              </ul>
+              <strong>Wat we zoeken</strong>
+              <ul>
+                <li>Nauwkeurig, betrouwbaar en klantvriendelijk</li>
+                <li>Ervaring is een pre maar niet verplicht</li>
+                <li>Beschikbaarheid in de ochtend</li>
+              </ul>
             </div>
           </section>
 
           <div class="vac-sep" aria-hidden="true"></div>
 
-          <!-- Compact two-column list of additional vacatures -->
+          <!-- Compact list: two columns -->
           <section aria-labelledby="more-title">
             <h2 id="more-title" style="margin:0 0 .6rem 0;">Andere vacatures</h2>
 
             <div class="vacancy-grid two">
-              <!-- Vakature: Bediening & Ontbijt -->
+              <!-- Bediening & Ontbijt -->
               <article class="card vacancy-compact" id="vac-bediening" aria-label="Vacature Bediening & Ontbijt">
                 <img class="media" src="images/dining-ai.jpg" alt="Ontbijtruimte en tafelsetting in Hotel Aurora" />
                 <div>
                   <h4>Bediening & Ontbijt</h4>
                   <div class="meta">16–24 uur • Gastgericht</div>
-                  <p>Verantwoordelijk voor het starten van de dag van onze gasten: ontbijtservice, tafelopmaak en gastcontact, met aandacht voor lokale producten.</p>
+                  <p>Start de dag van de gasten: ontbijtservice, tafelopmaak en gastcontact met aandacht voor lokale producten.</p>
                   <div class="vacancy-ctas">
-                    <button class="button primary" onclick="prefillRole('Bediening & Ontbijt'); scrollToApply();">Solliciteer</button>
-                    <a class="button ghost" href="#apply">Meer</a>
+                    <a class="button primary" href="beschikbaarheid.html">Solliciteer</a>
+                    <a class="button ghost" href="#bediening-desc">Meer</a>
                   </div>
                 </div>
               </article>
 
-              <!-- Vakature: Concierge Assistant -->
+              <!-- Concierge Assistant -->
               <article class="card vacancy-compact" id="vac-concierge" aria-label="Vacature Concierge Assistant">
-                <img class="media" src="images/activities-ai.jpg" alt="Activiteiten in de omgeving van Hotel Aurora: wandelroutes en excursies" />
+                <img class="media" src="images/activities-ai.jpg" alt="Activiteiten in de omgeving van Hotel Aurora" />
                 <div>
                   <h4>Concierge Assistant</h4>
                   <div class="meta">24 uur • Gastbeleving & activiteiten</div>
-                  <p>Assisteert bij gastverzoeken, lokale tips en coördinatie van activiteiten. Ideaal voor iemand met liefde voor regio en gastvrijheid.</p>
+                  <p>Assisteert bij gastverzoeken, lokale tips en coördinatie van activiteiten. Ideaal voor iemand met liefde voor de regio.</p>
                   <div class="vacancy-ctas">
-                    <button class="button primary" onclick="prefillRole('Concierge Assistant'); scrollToApply();">Solliciteer</button>
-                    <a class="button ghost" href="#apply">Meer</a>
+                    <a class="button primary" href="beschikbaarheid.html">Solliciteer</a>
+                    <a class="button ghost" href="#concierge-desc">Meer</a>
                   </div>
                 </div>
               </article>
+            </div>
+
+            <div id="bediening-desc" style="margin-top:.9rem; display:none;">
+              <strong>Bediening — Taken</strong>
+              <ul>
+                <li>Voorbereiden en serveren van ontbijt</li>
+                <li>Contact met gasten en kleine huishoudelijke taken</li>
+                <li>Samenwerking met keuken en receptie</li>
+              </ul>
+            </div>
+
+            <div id="concierge-desc" style="margin-top:.9rem; display:none;">
+              <strong>Concierge Assistant — Taken</strong>
+              <ul>
+                <li>Advies en reserveringen voor lokale activiteiten</li>
+                <li>Organiseren van transfers en kleine evenementen</li>
+                <li>Samenwerking met leveranciers en gidsen</li>
+              </ul>
             </div>
           </section>
 
         </div> <!-- end vacancies-wrap -->
 
-        <!-- Sollicitatieformulier (onderaan) - verbeterde opmaak -->
+        <!-- Sollicitatieformulier (styled like apply-card) -->
         <section id="apply" style="margin-top:1.5rem;">
           <h3>Solliciteer direct</h3>
-          <p class="prose" style="margin-top:.5rem; text-align:center;">Vul onderstaand formulier in.</p>
+          <p class="prose" style="margin-top:.5rem;">Vul onderstaand formulier in. Dit is een frontend-only formulier; bij succesvolle validatie tonen we een bevestiging.</p>
 
-          <div class="apply-card" role="form" aria-labelledby="apply-heading">
+          <div class="apply-card" style="margin-top:1rem;" role="form" aria-labelledby="apply-heading">
             <form id="apply-form" onsubmit="submitApplication(event)">
               <div class="apply-grid">
                 <div>
                   <label for="app-name">Naam</label>
-                  <input id="app-name" class="input" placeholder="Voor- en achternaam" required />
+                  <input id="app-name" class="input" required />
                 </div>
 
                 <div>
                   <label for="app-email">E-mail</label>
-                  <input id="app-email" type="email" class="input" placeholder="naam@voorbeeld.nl" required />
+                  <input id="app-email" type="email" class="input" required />
                 </div>
 
                 <div>
@@ -170,7 +233,7 @@
                 <button class="btn-ghost" type="button" onclick="document.getElementById('apply-form').reset();">Reset</button>
               </div>
 
-              <div id="apply-feedback" aria-live="polite"></div>
+              <div id="apply-feedback" aria-live="polite" style="margin-top:.75rem;"></div>
             </form>
           </div>
         </section>
@@ -188,8 +251,9 @@
         <h5 style="margin:.25rem 0;">Snel naar</h5>
         <ul style="list-style:none; padding:0; margin:0;">
           <li><a href="index.html">Home</a></li>
+          <li><a href="kamers.html">Onze kamers</a></li>
+          <li><a href="faciliteiten.html">Faciliteiten</a></li>
           <li><a href="team.html">Ons team</a></li>
-          <li><a href="gastenboek.html">Gastenboek</a></li>
         </ul>
       </div>
       <div style="flex:1 1 240px;">
@@ -208,7 +272,10 @@
       onScroll();
     })();
 
-    // Helper: scroll to apply form and focus first field
+    // Prefill & scroll helpers (used by vacancy buttons)
+    function prefillRole(role){
+      try { localStorage.setItem('aurora_preferred_role', role); } catch(e){}
+    }
     function scrollToApply(){
       const el = document.getElementById('apply');
       if(!el) return;
@@ -216,13 +283,7 @@
       setTimeout(()=>{ document.getElementById('app-name').focus(); }, 600);
     }
 
-    // Prefill role when clicking "Solliciteer" buttons
-    function prefillRole(role){
-      const roleInput = document.getElementById('app-role');
-      if(roleInput) roleInput.value = role;
-    }
-
-    // Simple client-side validation and fake success
+    // Simple client-side validation & fake success for apply form
     function submitApplication(event){
       event.preventDefault();
       const name = document.getElementById('app-name');
@@ -234,15 +295,25 @@
       if(!name.value.trim() || !email.checkValidity() || !role.value.trim() || !msg.value.trim()){
         fb.style.color = 'crimson';
         fb.textContent = 'Controleer of alle velden correct zijn ingevuld.';
-        fb.scrollIntoView({behavior:'smooth', block:'center'});
         return;
       }
 
       fb.style.color = 'var(--color-deep-green)';
       fb.textContent = 'Bedankt! Uw sollicitatie is ontvangen. We nemen snel contact op.';
-      // Reset form after a short delay
       setTimeout(()=>{ document.getElementById('apply-form').reset(); }, 1200);
     }
+
+    // Small toggles for compact vacancies (progressive enhancement)
+    document.querySelectorAll('a[href^="#bediening-desc"], a[href^="#concierge-desc"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if(!el) return;
+        el.style.display = el.style.display === 'none' || el.style.display === '' ? 'block' : 'none';
+        el.scrollIntoView({behavior:'smooth', block:'center'});
+      });
+    });
   </script>
 </body>
 </html>

@@ -581,3 +581,25 @@ a:focus, button:focus, input:focus, textarea:focus {
 
 /* Visual tweak for left-aligned subtitles under h3 */
 .room-meta > div { text-align:left; }
+
+/* GLOBAL: force left-aligned body text inside .container
+   Zorgt dat 'lead', 'prose' en paragrafen onder koppen
+   altijd links uitgelijnd zijn op alle pagina's.
+*/
+.container .prose,
+.container p,
+.lead,
+.card p,
+.feature-body .prose,
+.feature-body p,
+.room-meta p,
+.kicker + h1 + .prose,
+.hero .hero-content,
+.hero .hero-content .lead {
+  text-align: left !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Als er specifiek ergens centered alignment staat op .hero-content,
+   zorgt de regel hierboven dat de tekst toch links blijft. */

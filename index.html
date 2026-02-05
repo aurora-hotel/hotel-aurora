@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hotel Aurora — Rust, natuur & tijdloze luxe</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Hotel Aurora — boutique hotel tussen bossen en kust. Verfijnde kamers, wellness en lokale gastronomie.">
+</head>
+<body>
+  <!-- Header (shared across pages) -->
+  <header class="header" id="site-header">
+    <div class="container header-inner">
+      <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Hotel Aurora</a></div>
+      <nav class="nav" aria-label="Hoofdmenu">
+        <a href="index.html">Home</a>
+        <a href="team.html">Ons team</a>
+        <a href="vacatures.html">Vacatures</a>
+        <a href="gastenboek.html">Gastenboek</a>
+        <a class="cta" href="beschikbaarheid.html" role="button">Beschikbaarheid</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO: full-width image allowed; text content inside .container -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <!-- Afbeelding: ruime hotelomgeving met zachte ochtendmist en houten gevel in natuur -->
+    <img src="images/hero-ai.jpg" alt="Hotel Aurora: rustgevende gevel en tuin bij zonsopgang" class="hero-media" />
+    <div class="container">
+      <div style="max-width:720px;">
+        <h1 id="hero-heading">Hotel Aurora</h1>
+        <p class="lead">Waar tijd vertraagt en natuur centraal staat — verfijnde kamers, een kleinschalige spa en eten met lokale producten. Een plek om te vertragen, te wandelen en te genieten van aandacht voor details.</p>
+        <div class="btns" style="margin-top:1rem;">
+          <a class="button primary" href="#about">Ontdek het hotel</a>
+          <a class="button secondary" href="team.html">Bekijk het team</a>
+          <a class="button ghost" href="gastenboek.html">Lees ervaringen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVER -->
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <div class="kicker">Over Hotel Aurora</div>
+        <h2 style="margin-top:.5rem;">Kalm. Ambachtelijk. Herstel.</h2>
+        <div class="image-card" style="margin-top:1rem;">
+          <div class="card-body">
+            <p class="prose">Gelegen aan de rand van een beschermd natuurgebied, verwelkomt Hotel Aurora gasten die rust zoeken zonder in te leveren op comfort. Onze kamers combineren natuurlijke materialen met moderne voorzieningen. Iedere ochtend serveren we een ontbijt met producten van lokale producenten — zorgvuldig geselecteerd door onze keukenbrigade.</p>
+            <ul style="margin-top:1rem;">
+              <li><strong>Gastvrijheid</strong> — persoonlijke service en aandacht voor uw wensen.</li>
+              <li><strong>Kwaliteit</strong> — lokale ingrediënten, duurzame materialen en ambachtelijke verzorging.</li>
+              <li><strong>Duurzaamheid</strong> — energiebewuste oplossingen en samenwerking met gemeenschapsproducenten.</li>
+            </ul>
+          </div>
+          <figure class="card-media">
+            <!-- Afbeelding: warme hotelobby met hout, planten en zachte verlichting -->
+            <img src="images/lobby-ai.jpg" alt="Lobby van Hotel Aurora: houten accenten, zithoek en planten" class="media" />
+            <!-- Afbeelding toont de lichte, uitnodigende lobby met hout en zachte lampen -->
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faciliteiten & ervaringen -->
+    <section class="section facilities" aria-labelledby="facilities-heading">
+      <div class="container">
+        <div class="kicker">Faciliteiten</div>
+        <h2 id="facilities-heading" style="margin-top:.5rem;">Faciliteiten & Ervaringen</h2>
+        <div class="grid three-up" style="margin-top:1rem;">
+          <article class="card">
+            <figure style="margin:0;">
+              <!-- Afbeelding: rustige spa met behandeltafels en natuurlijk licht -->
+              <img src="images/spa-ai.jpg" alt="Spa bij Hotel Aurora: behandelcabines, zachte kleuren en natuurlijk daglicht" class="media" />
+              <!-- Spa-afbeelding: behandelruimte met zachte kleuren -->
+            </figure>
+            <div>
+              <h3 style="margin:.5rem 0;">Wellness & Spa</h3>
+              <p class="lead" style="margin:0;">Kleine spa met behandelingen op maat: ontspanningsmassage, sauna en rustruimte met uitzicht op het bos.</p>
+              <a href="#contact" style="margin-top:.5rem;display:inline-block;">Meer over wellness →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <figure style="margin:0;">
+              <!-- Afbeelding: buitenactiviteiten, wandelen, uitkijkpunt -->
+              <img src="images/activities-ai.jpg" alt="Buitenactiviteiten: wandelroutes en excursies nabij Hotel Aurora" class="media" />
+              <!-- Beelden van wandelingen en activiteiten in de omgeving -->
+            </figure>
+            <div>
+              <h3 style="margin:.5rem 0;">Activiteiten</h3>
+              <p class="lead" style="margin:0;">Geleide wandelingen, fietsen en natuurexcursies waarmee u de omgeving in alle rust ontdekt.</p>
+              <a href="#location" style="margin-top:.5rem;display:inline-block;">Bekijk activiteiten →</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <figure style="margin:0;">
+              <!-- Afbeelding: restaurant met fijne tafelsetting en lokale gerechten -->
+              <img src="images/dining-ai.jpg" alt="Restaurant van Hotel Aurora: lokaal geïnspireerde gerechten en warme sfeer" class="media" />
+              <!-- Dining-afbeelding: tafelsetting en gerechten -->
+            </figure>
+            <div>
+              <h3 style="margin:.5rem 0;">Eten & Ontspanning</h3>
+              <p class="lead" style="margin:0;">Kleine kaart, seizoensgebonden menu's met producten uit de regio en een zorgvuldige wijnselectie.</p>
+              <a href="#dining" style="margin-top:.5rem;display:inline-block;">Reserveer een tafel →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locatie -->
+    <section id="location" class="section" aria-labelledby="location-heading">
+      <div class="container">
+        <div class="kicker">Locatie & omgeving</div>
+        <h2 id="location-heading" style="margin-top:.5rem;">Tussen duin en bos</h2>
+        <div class="row" style="margin-top:1rem;">
+          <div style="flex:1 1 480px;">
+            <p class="prose">Hotel Aurora ligt op korte afstand van de kust en in de luwte van een uitgestrekt bosgebied. De omgeving nodigt uit tot wandelen, fietsen en ontmoeting met lokale makers — perfect voor wie wil onthaasten zonder lange reistijd.</p>
+
+            <ul style="margin-top:1rem;">
+              <li>Directe toegang tot gemarkeerde wandelroutes en uitzichtpunten.</li>
+              <li>Korte rit naar lokale producenten: kaasboerderij, ambachtelijke bakker en kleine wijnboerderij.</li>
+              <li>Ruime parkeerplaatsen en laadpalen voor elektrische auto’s.</li>
+              <li>Goede busverbindingen naar de dichtstbijzijnde stad (15–20 min).</li>
+              <li>Kindvriendelijke paden en rustige plekken voor gezinnen.</li>
+            </ul>
+          </div>
+          <div style="flex:0 0 360px;">
+            <!-- Afbeelding: kaartachtige foto van de omgeving met paden en uitzicht -->
+            <!-- Afbeelding toont de omgeving: paden, duinen en bos met zicht op horizon -->
+            <img src="images/location-ai.jpg" alt="Omgeving van Hotel Aurora: paden, duinen en bos met uitzicht" class="media" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / nieuwsbrief -->
+    <section class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <div style="display:flex; gap:var(--space-lg); align-items:stretch; flex-wrap:wrap;">
+          <div style="flex:1 1 480px;">
+            <h3 id="contact-heading">Contact & Nieuwsbrief</h3>
+            <p class="lead">Meld u aan voor het laatste nieuws over seizoensmenu's, speciale arrangementen en lokale ervaringen. Geen marketingspam — alleen relevante uitnodigingen.</p>
+            <form class="form" id="newsletter-form" style="max-width:520px; margin-top:1rem;" onsubmit="event.preventDefault(); newsletterSubmit();">
+              <label for="newsletter-email">E-mail</label>
+              <input id="newsletter-email" class="input" type="email" required placeholder="naam@voorbeeld.nl" />
+              <div style="display:flex; gap:.75rem; margin-top:.5rem;">
+                <button class="button primary" type="submit">Aanmelden</button>
+                <button class="button ghost" type="button" onclick="document.getElementById('newsletter-email').value='';">Annuleren</button>
+              </div>
+              <div id="newsletter-msg" aria-live="polite" style="margin-top:.5rem;"></div>
+            </form>
+          </div>
+
+          <div style="flex:0 0 320px;">
+            <div class="card">
+              <h4 style="margin:0 0 .5rem 0;">Contactgegevens</h4>
+              <p style="margin:0;">Hotel Aurora<br/>Dennenlaan 12<br/>1234 AB Kustplaats<br/>Tel: +31 20 123 4567<br/>E-mail: <a href="mailto:info@hotel-aurora.example">info@hotel-aurora.example</a></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (shared) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex; gap:var(--space-lg); flex-wrap:wrap; align-items:flex-start; padding-top:1.25rem; padding-bottom:1.25rem;">
+      <div style="flex:1 1 360px;">
+        <h4 style="margin-top:0;">Hotel Aurora</h4>
+        <p style="margin:.25rem 0;">Boutique hotel — rust, natuur en gastvrijheid. © 2026 Hotel Aurora</p>
+      </div>
+      <div style="flex:1 1 240px;">
+        <h5 style="margin:.25rem 0;">Snel naar</h5>
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="team.html">Ons team</a></li>
+          <li><a href="vacatures.html">Vacatures</a></li>
+          <li><a href="gastenboek.html">Gastenboek</a></li>
+        </ul>
+      </div>
+      <div style="flex:1 1 240px;">
+        <h5 style="margin:.25rem 0;">Openingstijden receptie</h5>
+        <p style="margin:0;">Dagelijks 07:30 — 21:30</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Inline JavaScript: sticky header + newsletter -->
+  <script>
+    // Sticky header shadow on scroll
+    (function(){
+      const header = document.getElementById('site-header');
+      const onScroll = () => {
+        if (window.scrollY > 10) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      };
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
+
+    // Newsletter fake submit
+    function newsletterSubmit(){
+      const email = document.getElementById('newsletter-email');
+      const msg = document.getElementById('newsletter-msg');
+      if(!email.checkValidity()){
+        msg.textContent = 'Voer een geldig e-mailadres in.';
+        msg.style.color = 'crimson';
+        return;
+      }
+      msg.style.color = 'var(--color-deep-green)';
+      msg.textContent = 'Bedankt! U bent aangemeld voor onze nieuwsbrief.';
+      // reset after a short delay
+      setTimeout(()=>{ email.value = ''; }, 1200);
+    }
+  </script>
+</body>
+</html>

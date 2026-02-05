@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🛎️ Inchecken — Hotel Scoutingkamp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">🏨 Hotel Scoutingkamp</a>
+      <nav class="main-nav" aria-label="Hoofdmenu">
+        <a href="index.html">Home</a>
+        <a href="incheck.html">Inchecken</a>
+        <a href="over-ons.html">Team</a>
+        <a href="vacatures.html">Vacatures</a>
+        <a href="gastenboek.html">Gastenboek</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Inchecken (spel)</h2>
+      <p>Dit formulier is alleen voor de beleving — het wordt niet opgeslagen of verzonden.</p>
+
+      <form class="fake-form" onsubmit="alert('Dit formulier is alleen voor de spelervaring — niet verzonden.'); return false;">
+        <label>Naam gast
+          <input type="text" name="naam" placeholder="Bijv. Sam" required>
+        </label>
+
+        <label>Kamertype
+          <select name="kamertype">
+            <option>Eenpersoonskamer</option>
+            <option>Tweepersoonskamer</option>
+            <option>Familiekamer</option>
+            <option>Suite (grote avonturiers)</option>
+          </select>
+        </label>
+
+        <label>Aantal nachten
+          <input type="number" name="nachten" min="1" value="1">
+        </label>
+
+        <label>Speciale wensen
+          <textarea name="wensen" placeholder="Bijv. geen spinnen, vegetarisch eten..."></textarea>
+        </label>
+
+        <p class="muted">Let op: knop is alleen voor rollenspel.</p>
+        <button type="submit" class="btn btn-primary">Inchecken 🛎️</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Hotel Scoutingkamp</small>
+    </div>
+  </footer>
+</body>
+</html>

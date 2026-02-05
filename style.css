@@ -444,6 +444,67 @@ label { font-weight:600; color: var(--color-deep-green); font-size: .95rem; }
   font-weight:700;
   font-size:.8rem;
 }
+/* Updates: avatar styles voor team pagina
+   Voeg deze sectie onderaan je bestaande style.css toe (of vervang de corresponderende sectie).
+*/
+
+/* Team avatar (rond, responsive) */
+.team-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 900px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+
+/* Avatar container in card */
+.card .avatar-wrap {
+  display:flex;
+  align-items:center;
+  gap:var(--space);
+}
+
+/* Rond avatar beeld */
+.avatar {
+  width:84px;
+  height:84px;
+  border-radius:50%;
+  overflow:hidden;
+  flex:0 0 84px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  border: 3px solid rgba(0,0,0,0.04);
+  box-shadow: 0 6px 18px rgba(17,17,17,0.06);
+}
+
+/* Iets grotere avatars op grotere schermen */
+@media (min-width: 900px) {
+  .avatar { width:96px; height:96px; flex:0 0 96px; }
+}
+
+/* Tekst naast avatar: verticaal gecentreerd */
+.card .avatar-meta {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+/* Kleine aanpassing: maak .media niet zichtbaar in team-cards als je avatar gebruikt */
+.card figure.media { display:none; }
+
+/* Zorg dat .card hover nog steeds werkt visueel */
+.card { transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+
+/* Als je wilt dat avatars ronde frames hebben met accentkleur (optioneel)
+.avatar-frame {
+  border: 2px solid rgba(139,94,60,0.10);
+  border-radius: 50%;
+  padding: 3px;
+  display:inline-block;
+}
+*/
 
 /* Responsive calendar: allow scrolling on small screens */
 .calendar-wrap { overflow:auto; -webkit-overflow-scrolling:touch; padding-bottom:.5rem; }

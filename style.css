@@ -565,3 +565,19 @@ a:focus, button:focus, input:focus, textarea:focus {
   .room-card .card-body { flex-wrap: nowrap; }
   .room-media { flex:0 0 420px; height:280px; }
 }
+/* --- Kamer pagina: prijs en meta alignment --- */
+
+.room-meta { display:flex; flex-direction:column; justify-content:center; align-items:flex-start; text-align:left; }
+.room-price-block { display:flex; flex-direction:column; gap:.5rem; margin-top:.8rem; align-items:flex-start; }
+.room-price { font-size:1.35rem; font-weight:900; color:var(--color-deep-green); }
+.room-availability .button { min-width:160px; }
+@media (max-width:520px){ .room-availability .button { width:100%; } }
+
+/* Ensure room images respect container and do not overflow */
+.room-media { width:100%; max-width:100%; height:auto; border-radius:12px; object-fit:cover; }
+@media (min-width:900px){
+  .room-media { flex:0 0 420px; height:280px; }
+}
+
+/* Visual tweak for left-aligned subtitles under h3 */
+.room-meta > div { text-align:left; }

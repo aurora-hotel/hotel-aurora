@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Onze kamers — Hotel Aurora</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Onze kamers — comfort, natuur en tijdloze luxe. Bekijk Comfort Kamer, Deluxe Kamer en Suite bij Hotel Aurora.">
+  <link rel="canonical" href="https://hotel-aurora.github.io/kamers.html">
+  <meta property="og:url" content="https://hotel-aurora.github.io/kamers.html">
+
+  <!-- Kleine, pagina-specifieke styling (voegt compacte regels toe zonder de hoofd-css te wijzigen) -->
+  <style>
+    /* Kamer cards — kleine aanpassingen specifiek voor deze pagina */
+    .rooms-hero { min-height: 52vh; display:flex; align-items:center; color:var(--color-white); position:relative; overflow:hidden; }
+    .rooms-hero .hero-media { object-position: center 40%; filter: saturate(0.96) contrast(0.95); }
+    .rooms-hero h1 { font-size: clamp(1.6rem, 3.2vw, 2.4rem); margin-bottom:.4rem; }
+    .rooms-grid { display:grid; gap:var(--space-lg); grid-template-columns: 1fr; }
+    @media (min-width: 900px) { .rooms-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .room-card { display:flex; flex-direction:column; gap:var(--space); }
+    .room-card .card-body { display:flex; gap:var(--space); align-items:flex-start; }
+    .room-card .room-media { width:100%; height:240px; border-radius:12px; object-fit:cover; }
+    @media (min-width:900px) {
+      .room-card .card-body { flex-direction:row; }
+      .room-card .room-media { width:420px; height:280px; flex:0 0 420px; }
+    }
+    .room-meta { flex:1 1 auto; display:flex; flex-direction:column; gap:.5rem; }
+    .room-perks { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.5rem; }
+    .perk { background: rgba(15,59,45,0.06); color:var(--color-deep-green); padding:.35rem .6rem; border-radius:999px; font-weight:700; font-size:. nine; }
+
+    .room-price { font-weight:800; color:var(--color-deep-green); font-size:1.05rem; margin-top:auto; }
+
+    /* toggle extra info */
+    .more { display:none; margin-top:.6rem; color:#333; }
+    .room-card.expanded .more { display:block; }
+
+    /* subtle highlight when expanded */
+    .room-card.expanded { box-shadow: 0 18px 36px rgba(15,59,45,0.06); transform: translateY(-4px); }
+
+    /* Amenities icons (CSS-only) */
+    .amenities { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:var(--space); margin-top:var(--space); }
+    @media (max-width:600px){ .amenities { grid-template-columns: repeat(2,1fr); } }
+    .amenity {
+      display:flex; gap:.75rem; align-items:center; padding:.6rem; background:linear-gradient(180deg,#fff,#fbfbfb); border-radius:10px; border:1px solid rgba(0,0,0,0.03);
+    }
+    .amenity .icon {
+      width:44px; height:44px; border-radius:8px; display:flex; align-items:center; justify-content:center; background:rgba(15,59,45,0.08); color:var(--color-deep-green); font-weight:700;
+      flex:0 0 44px;
+    }
+
+    /* CTA block */
+    .rooms-cta { padding: var(--space-lg) 0; background: linear-gradient(180deg, #fbfbfb, #f7f5f2); border-top:1px solid rgba(0,0,0,0.02); border-bottom:1px solid rgba(0,0,0,0.02); }
+    .rooms-cta .container { display:flex; align-items:center; justify-content:space-between; gap:var(--space); flex-wrap:wrap; }
+    .rooms-cta p { margin:0; }
+
+    /* small accessibility tweak for toggle buttons */
+    .toggle-more { background:transparent; border:1px solid rgba(15,59,45,0.06); padding:.45rem .65rem; border-radius:8px; color:var(--color-deep-green); font-weight:700; cursor:pointer; }
+    .toggle-more:focus { outline: 3px solid rgba(15,59,45,0.12); outline-offset:2px; }
+
+    /* ensure text never full-width inside hero container */
+    .hero-content { max-width: 60ch; }
+  </style>
+</head>
+<body>
+  <!-- Header (consistent site header) -->
+  <header class="header" id="site-header">
+    <div class="container header-inner">
+      <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Hotel Aurora</a></div>
+      <nav class="nav" aria-label="Hoofdmenu">
+        <a href="index.html">Home</a>
+        <a href="team.html">Ons team</a>
+        <a href="vacatures.html">Vacatures</a>
+        <a href="gastenboek.html">Gastenboek</a>
+        <a class="cta" href="https://hotel-aurora.github.io/beschikbaarheid.html" role="button">Beschikbaarheid</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="rooms-hero" aria-labelledby="rooms-heading">
+    <!-- Afbeelding: warme hotelomgeving die rust en natuur uitstraalt (full-width achtergrond) -->
+    <img src="images/hero-ai.jpg" alt="Hotel Aurora: rustige buitenomgeving bij zonsopgang met houten gevel" class="hero-media" />
+    <div class="container" style="position:relative; z-index:2; padding:var(--space-lg) 0;">
+      <div class="hero-content">
+        <h1 id="rooms-heading">Onze kamers</h1>
+        <p class="lead">Comfortabele kamers met aandacht voor rustige details, natuurlijke materialen en hedendaags comfort. Kies een kamer die bij uw verblijf past: van comfortabele basics tot ruime suites met wijds uitzicht.</p>
+        <div style="margin-top:1rem;">
+          <a class="button primary" href="beschikbaarheid.html">Bekijk beschikbaarheid</a>
+          <a class="button ghost" href="gastenboek.html">Lees ervaringen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="kicker">Kamers</div>
+        <h2 style="margin-top:.5rem;">Comfort, rust en kwaliteit</h2>
+        <p class="prose" style="margin-top:1rem;">Elke kamer is ontworpen met een rustige esthetiek en comfortabele basisvoorzieningen. We werken met duurzame materialen en bieden aandacht voor lokale details — een vredige basis na een dag in de natuur.</p>
+
+        <!-- Kamer overzicht -->
+        <div class="rooms-grid" style="margin-top:1.25rem;">
+
+          <!-- Comfort Kamer -->
+          <article class="card room-card" id="room-comfort">
+            <div class="card-body">
+              <figure style="margin:0;">
+                <!-- Afbeelding: sfeervolle kamer met warm licht en houten accenten -->
+                <img class="room-media" src="images/lobby-ai.jpg" alt="Comfort Kamer: warme, compacte kamer met houten accenten en comfortabel bed" />
+                <!-- Beeld toont een warme, intieme kamer-sfeer met hout en zachte verlichting -->
+              </figure>
+
+              <div class="room-meta">
+                <h3 style="margin:0;">Comfort Kamer</h3>
+                <div style="color:var(--color-muted); font-size:.95rem;">Compact en zorgvuldig ingericht — ideaal voor korte verblijven.</div>
+                <p style="margin-top:.5rem;">Onze Comfort Kamer biedt een comfortabele tweepersoonsbedopstelling, rustige ligging en alle basisvoorzieningen die u nodig heeft voor een ontspannen nacht.</p>
+
+                <div class="room-perks" aria-hidden="false">
+                  <span class="perk">Tweepersoonsbed</span>
+                  <span class="perk">Eigen badkamer</span>
+                  <span class="perk">Gratis wifi</span>
+                  <span class="perk">Natuurzicht</span>
+                </div>
+
+                <div style="display:flex; gap:.8rem; align-items:center; margin-top:.6rem;">
+                  <div class="room-price">Vanaf €95 / nacht</div>
+                  <div style="margin-left:auto; display:flex; gap:.5rem;">
+                    <button class="button primary" onclick="prefillRole('Comfort Kamer'); location.href='beschikbaarheid.html';">Beschikbaarheid</button>
+                    <button class="toggle-more" aria-expanded="false" aria-controls="more-comfort" data-target="room-comfort">Meer info</button>
+                  </div>
+                </div>
+
+                <div id="more-comfort" class="more" aria-hidden="true">
+                  <p>Extra's in de Comfort Kamer: handgemaakte handdoeken, kleine werkplek en een selectie aan lokale thee- en koffiemogelijkheden. Kinderbed op aanvraag.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Deluxe Kamer -->
+          <article class="card room-card" id="room-deluxe">
+            <div class="card-body">
+              <figure style="margin:0;">
+                <!-- Afbeelding: luxueuzer ingerichte kamer met zitje en uitzicht -->
+                <img class="room-media" src="images/spa-ai.jpg" alt="Deluxe Kamer: ruime kamer met zitgedeelte en comfort" />
+                <!-- Beeld toont ruime kamer-sfeer met zitgedeelte en zachte kleuren -->
+              </figure>
+
+              <div class="room-meta">
+                <h3 style="margin:0;">Deluxe Kamer</h3>
+                <div style="color:var(--color-muted); font-size:.95rem;">Ruimer, meer comfort en zachte luxe details.</div>
+                <p style="margin-top:.5rem;">De Deluxe Kamer heeft een groter bed, een royale badkamer en een aparte zithoek — perfect voor wie iets langer blijft of extra ruimte waardeert.</p>
+
+                <div class="room-perks">
+                  <span class="perk">Queen size bed</span>
+                  <span class="perk">Bad & regendouche</span>
+                  <span class="perk">Snel wifi</span>
+                  <span class="perk">Koffiezetapparaat</span>
+                </div>
+
+                <div style="display:flex; gap:.8rem; align-items:center; margin-top:.6rem;">
+                  <div class="room-price">Vanaf €145 / nacht</div>
+                  <div style="margin-left:auto; display:flex; gap:.5rem;">
+                    <button class="button primary" onclick="prefillRole('Deluxe Kamer'); location.href='beschikbaarheid.html';">Beschikbaarheid</button>
+                    <button class="toggle-more" aria-expanded="false" aria-controls="more-deluxe" data-target="room-deluxe">Meer info</button>
+                  </div>
+                </div>
+
+                <div id="more-deluxe" class="more" aria-hidden="true">
+                  <p>Deluxe gasten genieten van extra's zoals geselecteerde badproducten, kamerjas en slippers, en de mogelijkheid tot late check-out (indien beschikbaar).</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Suite -->
+          <article class="card room-card" id="room-suite">
+            <div class="card-body">
+              <figure style="margin:0;">
+                <!-- Afbeelding: suite-achtige setting met ruime zithoek en elegante styling -->
+                <img class="room-media" src="images/dining-ai.jpg" alt="Suite: ruime suite met aparte woon- en slaapruimte en elegant uitzicht" />
+                <!-- Beeld toont ruime suite-setting, elegante tafel en comfortabele loungestoelen -->
+              </figure>
+
+              <div class="room-meta">
+                <h3 style="margin:0;">Suite</h3>
+                <div style="color:var(--color-muted); font-size:.95rem;">Ruim, stijlvol en met extra voorzieningen voor een bijzonder verblijf.</div>
+                <p style="margin-top:.5rem;">Onze Suite combineert een aparte woonruimte met een grote slaapkamer en luxe badkamer — ontworpen voor langere verblijven en speciale gelegenheden.</p>
+
+                <div class="room-perks">
+                  <span class="perk">King size bed</span>
+                  <span class="perk">Aparte woonruimte</span>
+                  <span class="perk">Bad & regendouche</span>
+                  <span class="perk">Uitzicht & balkon</span>
+                </div>
+
+                <div style="display:flex; gap:.8rem; align-items:center; margin-top:.6rem;">
+                  <div class="room-price">Vanaf €225 / nacht</div>
+                  <div style="margin-left:auto; display:flex; gap:.5rem;">
+                    <button class="button primary" onclick="prefillRole('Suite'); location.href='beschikbaarheid.html';">Beschikbaarheid</button>
+                    <button class="toggle-more" aria-expanded="false" aria-controls="more-suite" data-target="room-suite">Meer info</button>
+                  </div>
+                </div>
+
+                <div id="more-suite" class="more" aria-hidden="true">
+                  <p>Suite-gasten ontvangen een welkomstarrangement, premium badproducten, en persoonlijke aandacht bij het reserveren van diner of wellness-afspraken.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div> <!-- end rooms-grid -->
+
+        <!-- Voorzieningen (globaal) -->
+        <section class="section" aria-labelledby="voorzieningen-heading" style="margin-top:2rem;">
+          <div class="container">
+            <h3 id="voorzieningen-heading">Voorzieningen</h3>
+            <p class="prose" style="margin-top:.5rem;">Alle kamers bieden een basiscomfort met aandacht voor detail. Daarnaast heeft het hotel gedeelde voorzieningen die bijdragen aan een aangenaam verblijf.</p>
+
+            <div class="amenities" style="margin-top:1rem;">
+              <div class="amenity">
+                <div class="icon" aria-hidden="true">Wi</div>
+                <div>
+                  <strong>Gratis wifi</strong><div style="color:var(--color-muted); font-size:.95rem;">Snel en betrouwbaar</div>
+                </div>
+              </div>
+
+              <div class="amenity">
+                <div class="icon" aria-hidden="true">CL</div>
+                <div>
+                  <strong>Dagelijkse schoonmaak</strong><div style="color:var(--color-muted); font-size:.95rem;">Standaard volgens onze checklist</div>
+                </div>
+              </div>
+
+              <div class="amenity">
+                <div class="icon" aria-hidden="true">Bed</div>
+                <div>
+                  <strong>Luxe beddengoed</strong><div style="color:var(--color-muted); font-size:.95rem;">Hoogwaardig en comfortabel</div>
+                </div>
+              </div>
+
+              <div class="amenity">
+                <div class="icon" aria-hidden="true">NB</div>
+                <div>
+                  <strong>Natuurlijke verzorgingsproducten</strong><div style="color:var(--color-muted); font-size:.95rem;">Kleine en verantwoorde merken</div>
+                </div>
+              </div>
+
+              <div class="amenity">
+                <div class="icon" aria-hidden="true">BF</div>
+                <div>
+                  <strong>Ontbijt</strong><div style="color:var(--color-muted); font-size:.95rem;">Dagelijks vers, optioneel bij te boeken</div>
+                </div>
+              </div>
+
+              <div class="amenity">
+                <div class="icon" aria-hidden="true">SPA</div>
+                <div>
+                  <strong>Spa & wellness</strong><div style="color:var(--color-muted); font-size:.95rem;">Kleinschalige behandelingen (reservering aanbevolen)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Extra informatie / vertrouwen -->
+        <section class="section" aria-labelledby="praktisch-heading" style="margin-top:2rem;">
+          <div class="container">
+            <h3 id="praktisch-heading">Praktische informatie</h3>
+            <div style="display:grid; gap:var(--space); grid-template-columns: 1fr; margin-top:var(--space);">
+              <div class="card">
+                <h4 style="margin:0 0 .4rem 0;">In- & uitchecken</h4>
+                <p style="margin:0;">Inchecken vanaf 15:00. Uitchecken tot 11:00. Vroeg inchecken of laat uitchecken is mogelijk in overleg en afhankelijk van beschikbaarheid.</p>
+              </div>
+
+              <div class="card">
+                <h4 style="margin:0 0 .4rem 0;">Huisregels</h4>
+                <p style="margin:0;">Roken is niet toegestaan in de kamers. Huisdieren op aanvraag en in overleg. Respecteer rustige uren tussen 22:00 en 07:00.</p>
+              </div>
+
+              <div class="card">
+                <h4 style="margin:0 0 .4rem 0;">Toegankelijkheid</h4>
+                <p style="margin:0;">Het hotel heeft beperkte toegankelijkheid; voor specifieke voorzieningen (rolstoeltoegang, aangepaste kamers) adviseren we contact op te nemen vóór boeking zodat we kunnen voorzien in uw behoeften.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="rooms-cta">
+      <div class="container">
+        <p style="margin:0;"><strong>Wilt u meer weten over onze kamers?</strong> Neem contact op of bekijk ervaringen van eerdere gasten.</p>
+        <div style="display:flex; gap:.75rem; align-items:center;">
+          <a class="button primary" href="mailto:info@hotel-aurora.example">Neem contact op</a>
+          <a class="button ghost" href="gastenboek.html">Bekijk ervaringen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (consistent site footer) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container" style="display:flex; gap:var(--space-lg); flex-wrap:wrap; align-items:flex-start; padding-top:1.25rem; padding-bottom:1.25rem;">
+      <div style="flex:1 1 360px;">
+        <h4 style="margin-top:0;">Hotel Aurora</h4>
+        <p style="margin:.25rem 0;">© 2026 Hotel Aurora</p>
+      </div>
+      <div style="flex:1 1 240px;">
+        <h5 style="margin:.25rem 0;">Snel naar</h5>
+        <ul style="list-style:none; padding:0; margin:0;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="team.html">Ons team</a></li>
+          <li><a href="vacatures.html">Vacatures</a></li>
+          <li><a href="gastenboek.html">Gastenboek</a></li>
+        </ul>
+      </div>
+      <div style="flex:1 1 240px;">
+        <h5 style="margin:.25rem 0;">Contact</h5>
+        <p style="margin:0;">info@hotel-aurora.example<br/>+31 20 123 4567</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Licht JavaScript: toggles en kleine UX helpers -->
+  <script>
+    // Sticky header (same behaviour as other pages)
+    (function(){
+      const header = document.getElementById('site-header');
+      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+    })();
+
+    // Toggle "Meer info" per kamer
+    (function(){
+      const toggles = document.querySelectorAll('.toggle-more');
+      toggles.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const targetId = btn.getAttribute('data-target');
+          const card = document.getElementById(targetId);
+          if(!card) return;
+          const expanded = card.classList.toggle('expanded');
+          // manage aria states
+          btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+          const more = card.querySelector('.more');
+          if(more) more.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+          // smooth scroll slightly to keep context
+          if(expanded) card.scrollIntoView({behavior:'smooth', block:'center'});
+        });
+      });
+    })();
+
+    // Pre-fill role helper (used by availability button)
+    function prefillRole(role){
+      try {
+        // If vacatures apply form is present on another page, we just set role param in URL (light behaviour)
+        // For now, we redirect to beschikbaarheid page (or keep current behaviour)
+        localStorage.setItem('aurora_preferred_role', role);
+      } catch(e){}
+      return;
+    }
+  </script>
+</body>
+</html>

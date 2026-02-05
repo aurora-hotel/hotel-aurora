@@ -753,107 +753,107 @@ a:focus, button:focus, input:focus, textarea:focus {
    als je later een maximum voor regelbreedte wilt, wijzig 100% naar
    max-width: 75rem; (of verwijder de !important-regel) */
 
-/* ---------- Mobile-only overrides (desktop blijft ongewijzigd) ----------
-   Plaats dit onderaan style.css. Alle regels hier zitten in media-queries
-   zodat desktop (>=981px) exact hetzelfde blijft.
+/* ---------- Mobile-only: hamburger, mobile nav, booking bar stacking, overflow fix ----------
+   Plaats dit onderaan style.css. Dit blok zit volledig in media-queries zodat desktop
+   ongewijzigd blijft.
 */
 
-/* NAV TOGGLE (hamburger) - hidden on desktop, active on small screens */
-.nav-toggle {
-  display: none;
-  background: transparent;
-  border: 0;
-  padding: .35rem;
-  margin-left: .5rem;
-  border-radius: 8px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.nav-toggle:focus { outline: 3px solid rgba(47,143,91,0.18); }
-
-.hamburger {
-  width: 22px;
-  height: 2px;
-  background: currentColor;
-  display: inline-block;
-  position: relative;
-}
-.hamburger::before,
-.hamburger::after {
-  content: "";
-  width: 22px;
-  height: 2px;
-  background: currentColor;
-  position: absolute;
-  left: 0;
-  transition: transform .18s ease;
-}
-.hamburger::before { top: -6px; }
-.hamburger::after { top: 6px; }
-
-/* Mobile nav behaviour only for narrow viewports */
 @media (max-width: 980px) {
-  /* hide the normal desktop nav (only on small screens) */
-  .nav { display: none; }
+  /* prevent horizontal scroll only on small screens */
+  html, body { overflow-x: hidden; }
 
-  /* open state for mobile nav */
+  /* make sure images scale only on small screens (desktop keeps existing behaviour) */
+  img, .media, .hero-media, figure img { max-width: 100%; width: 100%; height: auto; display:block; }
+
+  /* Hamburger button visible only on small screens */
+  .nav-toggle {
+    display: inline-flex;
+    background: transparent;
+    border: 0;
+    padding: .35rem;
+    margin-left: .5rem;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-deep-green);
+  }
+  .nav-toggle:focus { outline: 3px solid rgba(47,143,91,0.18); }
+
+  .hamburger {
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    display: inline-block;
+    position: relative;
+  }
+  .hamburger::before,
+  .hamburger::after {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    position: absolute;
+    left: 0;
+    transition: transform .18s ease, opacity .18s ease;
+  }
+  .hamburger::before { top: -6px; }
+  .hamburger::after { top: 6px; }
+
+  /* hide desktop nav and show mobile overlay nav when .open is present */
+  .nav { display: none; }
   .nav.open {
     display: flex;
-    position: absolute;
+    position: fixed; /* fixed prevents layout shift/overflow */
     top: calc(var(--header-height, 64px));
     left: 0;
     right: 0;
+    width: 100%;
+    max-width: 100%;
     background: linear-gradient(180deg, #fff, #fbfbfb);
     flex-direction: column;
     gap: .25rem;
     padding: .75rem 1rem;
     border-bottom: 1px solid rgba(0,0,0,0.04);
-    z-index: 80;
+    z-index: 120; /* above page content */
+    box-shadow: 0 10px 30px rgba(17,17,17,0.06);
+    overflow-y: auto; /* allow vertical scroll inside menu if long */
+    overscroll-behavior: contain;
   }
-  .nav a { padding: .6rem .5rem; border-radius:8px; }
-  .nav a.cta { margin-top:.25rem; }
-
-  .nav-toggle { display: inline-flex; color: var(--color-deep-green); }
-  .header-inner { display:flex; align-items:center; gap:.5rem; }
+  .nav.open a { padding: .6rem .5rem; border-radius:8px; }
+  .nav.open a.cta { margin-top:.25rem; }
 
   /* animate hamburger to X when open */
   .nav-toggle[aria-expanded="true"] .hamburger { background: transparent; }
   .nav-toggle[aria-expanded="true"] .hamburger::before { transform: translateY(6px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] .hamburger::after { transform: translateY(-6px) rotate(-45deg); }
 
-  /* Booking bar: stacked grid for mobile */
-  @media (max-width:900px){
-    .booking-inner { padding: .5rem 1rem; }
-    .booking-row { display:grid; grid-template-columns: repeat(2,1fr); gap:.5rem; align-items:center; }
-    .booking-row .field { min-width:0; }
-    .price-block { order: 5; display:flex; align-items:center; gap:.5rem; }
-    .cta-block { order:6; }
-    .booking-cta { width:100%; padding:.65rem 0; }
-  }
+  /* Booking bar stacking on mobile */
+  .booking-inner { padding: .5rem 1rem; }
+  .booking-row { display:grid; grid-template-columns: repeat(2,1fr); gap:.6rem; align-items:center; }
+  .booking-row .field { min-width:0; }
+  .price-block { order: 5; display:flex; align-items:center; gap:.5rem; }
+  .cta-block { order: 6; }
+  .booking-cta { width:100%; padding:.65rem 0; }
 
-  /* Hero adjustments for small screens */
-  @media (max-width:700px){
-    .hero .hero-content { padding-top:2rem !important; padding-bottom:2rem !important; }
-    .hero .lead { font-size: 1rem; line-height:1.4; }
-    .hero-media { max-height: 44vh; object-fit:cover; }
-  }
+  /* Hero adjustments for mobile */
+  .hero .hero-content { padding-top:2rem !important; padding-bottom:2rem !important; }
+  .hero .lead { font-size: 1rem; line-height:1.4; }
+  .hero-media { max-height: 44vh; object-fit:cover; }
 
-  /* Reviews responsive for small screens */
-  @media (max-width:700px){
-    .reviews-preview, .reviews-grid { grid-template-columns: 1fr !important; gap: 1rem; }
-  }
+  /* Reviews to 1 column on narrow screens (guestbook page etc.) */
+  .reviews-preview, .reviews-grid { grid-template-columns: 1fr !important; gap: 1rem; }
 
-  /* Cards and touch-target adjustments for mobile */
-  .input, .button, .nav a, .nav-toggle {
-    min-height: 44px;
-  }
-  @media (max-width:860px){
-    .card { padding: .85rem; }
-    .button { padding: .6rem .9rem; font-size: .95rem; }
-    .apply-card { padding:.9rem; }
-  }
+  /* Bigger touch targets */
+  .input, .button, .nav a, .nav-toggle { min-height:44px; }
 
-  /* prevent background scroll when mobile nav open */
+  /* prevent page from scrolling behind open nav */
   body.nav-open { overflow: hidden; touch-action: none; }
-} /* end @media 980px */
+}
+
+/* Ensure desktop nav remains normal above 980px (no change) */
+@media (min-width: 981px) {
+  .nav { display:flex !important; position:static !important; flex-direction:row !important; gap: 1rem; }
+  .nav.open { display:flex; }
+  .nav-toggle { display:none; }
+}

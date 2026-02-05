@@ -9,9 +9,8 @@
   <link rel="canonical" href="https://hotel-aurora.github.io/faciliteiten.html">
   <meta property="og:url" content="https://hotel-aurora.github.io/faciliteiten.html">
 
-  <!-- Pagina-specifieke, compacte CSS uitbreiding (optioneel) -->
   <style>
-    /* ---------- Faciliteiten pagina: kleine aanvullingen ---------- */
+    /* Kleine pagina-specifieke aanvullingen — minimalistisch en compatible met bestaande style.css */
     .highlights { display:grid; gap:var(--space-lg); grid-template-columns: repeat(2,1fr); margin-top:var(--space); }
     @media (min-width:900px){ .highlights { grid-template-columns: repeat(3,1fr); } }
 
@@ -32,47 +31,29 @@
       background:rgba(15,59,45,0.08); color:var(--color-deep-green); font-weight:800;
       flex:0 0 56px; font-size:0.95rem;
     }
-    .highlight h4 { margin:0; }
-    .highlight p { margin:.25rem 0 0 0; color:var(--color-muted); font-size:.95rem; }
 
-    /* Feature blocks (alternate left/right) */
     .feature { display:grid; gap:var(--space-lg); margin-top:var(--space-lg); align-items:center; }
-    .feature-inner { display:flex; gap:var(--space); flex-direction:column; }
-    @media (min-width:900px){
-      .feature { grid-template-columns: 1fr 1fr; }
-      .feature.reverse { grid-template-columns: 1fr 1fr; }
-      .feature.reverse .feature-media { order:2; }
-      .feature.reverse .feature-body { order:1; }
-      .feature-inner { flex-direction:column; }
-    }
-
+    @media (min-width:900px){ .feature { grid-template-columns: 1fr 1fr; } .feature.reverse .feature-media { order:2; } }
     .feature-media { width:100%; height:320px; border-radius:12px; overflow:hidden; display:block; object-fit:cover; }
-    .feature-body { padding:0; }
-    .feature-body h3 { margin:0 0 .5rem 0; }
     .feature-body .prose { max-width:65ch; }
 
-    /* accordion details (mobile-friendly) */
     .accordion-toggle { display:inline-flex; align-items:center; gap:.5rem; background:transparent; border:1px solid rgba(15,59,45,0.06); padding:.45rem .6rem; border-radius:8px; color:var(--color-deep-green); cursor:pointer; font-weight:700; }
     .accordion { margin-top:.75rem; display:none; }
     .accordion.open { display:block; }
 
-    /* Practical info card grid */
     .practical { display:grid; gap:var(--space); grid-template-columns: 1fr; margin-top:var(--space-lg); }
     @media (min-width:900px){ .practical { grid-template-columns: repeat(3,1fr); } }
-    .practical .card { padding:var(--space); }
 
-    /* CTA variant */
     .facilities-cta { padding: calc(var(--space-lg)) 0; background: linear-gradient(180deg,#faf9f7,#f5f2ee); border-top:1px solid rgba(0,0,0,0.02); }
     .reveal { opacity:0; transform: translateY(10px); transition: opacity 520ms ease, transform 520ms ease; }
     .reveal.is-visible { opacity:1; transform:none; }
 
-    /* small helper for bullet lists */
     .dot-list { list-style: none; padding-left: 0; margin:0; display:grid; gap:.4rem; }
     .dot-list li::before { content: "•"; color:var(--accent); font-weight:800; display:inline-block; width:1.2rem; margin-right:.4rem; }
   </style>
 </head>
 <body>
-  <!-- Header / Nav (consistent) -->
+  <!-- Header: consistent with 'Onze kamers' header -->
   <header class="header" id="site-header">
     <div class="container header-inner">
       <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Hotel Aurora</a></div>
@@ -88,35 +69,36 @@
     </div>
   </header>
 
-  <!-- HERO — stacked variant: afbeelding full-width boven, tekst eronder in .container -->
-<section class="hero-stack" aria-labelledby="fac-head">
-  <!-- Afbeelding: rustgevende spa-omgeving voor hero -->
-  <!-- Beeld toont de spa-ruimte met zachte kleuren en rustige verlichting -->
-  <img src="images/spa-ai.jpg" alt="Wellnessruimte van Hotel Aurora met behandeltafels en zacht licht" class="hero-media" />
-
-  <div class="container" style="padding-top:var(--space-lg); padding-bottom:var(--space-lg);">
-    <h1 id="fac-head">Faciliteiten</h1>
-    <p class="lead" style="max-width:65ch;">Ontdek onze faciliteiten: van een kleinschalige spa en verfijnd dineren tot rustige lounges en mogelijkheden voor zakelijke bijeenkomsten. Alles met aandacht voor comfort en service.</p>
-    <div style="margin-top:1rem;">
-      <a class="button primary" href="kamers.html">Bekijk de kamers</a>
-      <a class="button ghost" href="gastenboek.html">Lees ervaringen</a>
+  <!-- HERO (zelfde overlay/positie en hoogte als op 'Onze kamers', maar met spa-afbeelding en faciliteiten-tekst) -->
+  <section class="hero" aria-labelledby="fac-head">
+    <!-- Afbeelding: spa-ruimte met behandelbanken en rustige inrichting -->
+    <!-- Beeld toont de kleinschalige spa van Hotel Aurora met zachte verlichting en natuurlijke materialen -->
+    <img src="images/spa-ai.jpg" alt="Wellnessruimte van Hotel Aurora met behandelbanken en rustige inrichting" class="hero-media" />
+    <div class="container" style="position:relative; z-index:2; padding:var(--space-lg) 0;">
+      <div class="hero-content">
+        <h1 id="fac-head">Faciliteiten</h1>
+        <p class="lead">Ontdek onze faciliteiten — een kleinschalige spa, verfijnd dineren, rustige lounges en activiteiten in de natuur. Alles is zorgvuldig samengesteld voor rust, comfort en aandacht voor detail.</p>
+        <div style="margin-top:1rem;">
+          <a class="button primary" href="#wellness-heading">Wellness & Spa</a>
+          <a class="button ghost" href="mailto:info@hotel-aurora.example">Neem contact op</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <main>
     <section class="section">
       <div class="container">
-        <!-- Highlights -->
         <div class="kicker">Hoogtepunten</div>
-        <h2 style="margin-top:.5rem;">Wat ons bijzonder maakt</h2>
+        <h2 style="margin-top:.5rem;">Wat wij bieden</h2>
+        <p class="prose" style="margin-top:1rem;">Een overzicht van onze belangrijkste faciliteiten en services — kleinschalig, verzorgd en met aandacht voor de regio.</p>
 
         <div class="highlights" style="margin-top:var(--space);">
           <div class="highlight reveal">
             <div class="icon" aria-hidden="true">WS</div>
             <div>
               <h4>Wellness & Spa</h4>
-              <p>Behandelingen op maat, kleinschalige rustruimtes en sauna — reserveren aanbevolen.</p>
+              <p>Behandelingen op maat, rustruimte en sauna — reserveren aanbevolen.</p>
             </div>
           </div>
 
@@ -124,7 +106,7 @@
             <div class="icon" aria-hidden="true">RT</div>
             <div>
               <h4>Restaurant</h4>
-              <p>Regionale ingrediënten, seizoensmenu en rustige tafelschikkingen met uitzicht.</p>
+              <p>Seizoensgebonden menu's met lokale ingrediënten en rustige tafelschikkingen.</p>
             </div>
           </div>
 
@@ -132,7 +114,7 @@
             <div class="icon" aria-hidden="true">NB</div>
             <div>
               <h4>Natuurbeleving</h4>
-              <p>Geleide wandelingen en lokale partners voor authentieke ervaring.</p>
+              <p>Wandelingen en activiteiten via lokale samenwerkingen — ontdek de omgeving.</p>
             </div>
           </div>
 
@@ -140,7 +122,7 @@
             <div class="icon" aria-hidden="true">LB</div>
             <div>
               <h4>Lounge & Lobby</h4>
-              <p>Rustige zitjes, leeshoek en warme ontvangst — ideaal om te ontspannen.</p>
+              <p>Leeshoek, warme ontvangst en rustige zitjes om te ontspannen.</p>
             </div>
           </div>
 
@@ -148,7 +130,7 @@
             <div class="icon" aria-hidden="true">EV</div>
             <div>
               <h4>Zakelijk & Events</h4>
-              <p>Kleine vergaderruimtes en verzorgde breaks voor zakelijke bijeenkomsten.</p>
+              <p>Kleine vergaderruimtes en verzorgde dagarrangementen.</p>
             </div>
           </div>
 
@@ -156,191 +138,186 @@
             <div class="icon" aria-hidden="true">PK</div>
             <div>
               <h4>Parkeren & Bereikbaarheid</h4>
-              <p>Ruime parkeerplaatsen, laadpalen en goede verbindingen met OV.</p>
+              <p>Gratis parkeerplaats, laadpalen en goede verbindingen met OV.</p>
             </div>
           </div>
         </div>
 
-        <!-- Facilities detailed sections -->
-        <!-- A: Wellness & ontspanning -->
+        <!-- Detailed facility sections (A-E), alternating layouts -->
         <section class="feature reveal" aria-labelledby="wellness-heading" style="margin-top:var(--space-lg);">
           <div>
-            <img class="feature-media" src="images/spa-ai.jpg" alt="Wellness ruimte met behandelbanken en rustgevende inrichting" />
-            <!-- Afbeelding toont de spa met behandelbanken, zachte kleuren en natuurlijke materialen -->
+            <img class="feature-media" src="images/spa-ai.jpg" alt="Wellnessruimte: behandelbanken, zachte verlichting en rustgevende inrichting" />
+            <!-- Afbeelding toont behandelruimte en rustgedeelte in de spa -->
           </div>
 
           <div class="feature-body">
             <h3 id="wellness-heading">Wellness & ontspanning</h3>
             <div class="prose">
-              <p>Onze kleinschalige spa is ontworpen voor rust en herstel. Behandelingen zijn zorgvuldig afgestemd en de rustruimte biedt uitzicht op de aangrenzende natuur — een ideale combinatie voor wie wil ontspannen.</p>
+              <p>Onze kleinschalige spa is gericht op herstel en rust. Met zorgvuldig geselecteerde behandelingen en een rustige rustruimte bieden we een kleinschalige, persoonlijke ervaring.</p>
             </div>
 
             <ul class="dot-list" style="margin-top:.8rem;">
-              <li>Behandelingen op afspraak (massage, ontspanningstherapie)</li>
-              <li>Sauna en rustruimte — reservering aanbevolen</li>
-              <li>Lokale, natuurlijke producten voor verzorging</li>
-              <li>Persoonlijke service en advies bij het boeken</li>
+              <li>Behandelingen op afspraak (massage, gezichtsbehandeling)</li>
+              <li>Sauna en ontspanningsruimte — reserveren aanbevolen</li>
+              <li>Lokale, natuurlijke verzorgingsproducten</li>
+              <li>Combinatie-arrangementen met ontbijt of diner mogelijk</li>
             </ul>
 
             <div style="margin-top:.8rem;">
-              <button class="button primary" onclick="location.href='beschikbaarheid.html'">Meer weten & reserveren</button>
-              <button class="accordion-toggle" data-target="acc-wellness" aria-expanded="false">Details openen</button>
+              <a class="button primary" href="beschikbaarheid.html">Meer weten & reserveren</a>
+              <button class="accordion-toggle" data-target="acc-wellness" aria-expanded="false">Praktische details</button>
             </div>
 
             <div id="acc-wellness" class="accordion" aria-hidden="true">
-              <p style="margin-top:.6rem;">Tip: combineer een behandeling met een lichte brunch in ons restaurant voor een complete dag van herstel. Voor groepen bieden wij op aanvraag speciale arrangementen.</p>
+              <p style="margin-top:.6rem;">Tip: combineer een ochtendbehandeling met een late check‑out (indien beschikbaar). Voor groepsboekingen bieden we aangepaste tijden en arrangementen.</p>
             </div>
           </div>
         </section>
 
-        <!-- B: Restaurant & ontbijt (reverse layout on large screens) -->
         <section class="feature reverse reveal" aria-labelledby="dining-heading" style="margin-top:var(--space-lg);">
           <div>
-            <img class="feature-media" src="images/dining-ai.jpg" alt="Restaurantruimte met warme tafelschikkingen en lokale gerechten" />
-            <!-- Afbeelding toont het restaurant met tafelsetting en gerechten, sfeervolle verlichting -->
+            <img class="feature-media" src="images/dining-ai.jpg" alt="Restaurant: tafelsetting, lokale gerechten en warme sfeer" />
+            <!-- Afbeelding toont restaurant met tafelsetting en lokale gerechten -->
           </div>
 
           <div class="feature-body">
             <h3 id="dining-heading">Restaurant & ontbijt</h3>
             <div class="prose">
-              <p>Onze keuken werkt seizoensgebonden en lokaal. Iedere ochtend serveren wij een vers ontbijt met producten uit de regio; 's avonds bieden we een beknopt, zorgvuldig samengesteld menu dat past bij de rust van ons hotel.</p>
+              <p>Onze keuken werkt met lokale producten en een seizoensgebonden kaart. Het ontbijt is dagelijks vers bereid en biedt een verzorgd start van de dag.</p>
             </div>
 
             <ul class="dot-list" style="margin-top:.8rem;">
-              <li>Dagelijks ontbijt (07:30 — 10:30), lokaal georiënteerd</li>
-              <li>Diner op reservering: seizoensmenu met aandacht voor regionale producenten</li>
-              <li>Specifieke dieetwensen? Meld het bij reservering</li>
-              <li>Kleine wijnkaart met focus op lokale en Europese wijnen</li>
+              <li>Ontbijt dagelijks 07:30 — 10:30 (reserveer indien gewenst)</li>
+              <li>Diner op reservering: compact menu met seizoenskeuzes</li>
+              <li>Dieetwensen en allergieën op voorhand doorgeven</li>
+              <li>Kleine wijnkaart met lokale & Europese keuzes</li>
             </ul>
 
             <div style="margin-top:.8rem;">
-              <a class="button primary" href="gastenboek.html">Reserveer tafel / Lees ervaringen</a>
-              <button class="accordion-toggle" data-target="acc-dining" aria-expanded="false">Bekijk details</button>
+              <a class="button primary" href="faciliteiten.html#dining-heading">Lees meer</a>
+              <button class="accordion-toggle" data-target="acc-dining" aria-expanded="false">Details</button>
             </div>
 
             <div id="acc-dining" class="accordion" aria-hidden="true">
-              <p style="margin-top:.6rem;">Wij adviseren reserveren voor het diner, zeker in weekends en in het hoogseizoen. Voor speciale gelegenheden bieden wij een aangepast menu op aanvraag.</p>
+              <p style="margin-top:.6rem;">Reserveren voor diner wordt aanbevolen in weekends en tijdens evenementen. Voor speciale menusamenstellingen kunt u contact opnemen.</p>
             </div>
           </div>
         </section>
 
-        <!-- C: Lobby & lounge -->
         <section class="feature reveal" aria-labelledby="lobby-heading" style="margin-top:var(--space-lg);">
           <div>
-            <img class="feature-media" src="images/lobby-ai.jpg" alt="Lobby en lounge van Hotel Aurora met houten accenten en comfortabele zitplaatsen" />
-            <!-- Afbeelding toont de warme lobby met houten accenten, planten en zitplekken -->
+            <img class="feature-media" src="images/lobby-ai.jpg" alt="Lobby & lounge: houten accenten, comfortabele zitplaatsen en planten" />
+            <!-- Afbeelding toont warme lobby met zithoek en planten -->
           </div>
 
           <div class="feature-body">
             <h3 id="lobby-heading">Lobby & lounge</h3>
             <div class="prose">
-              <p>Onze lobby en lounge zijn het hart van het hotel — rustig ingericht om te lezen, te werken of met elkaar te praten. Het is een laagdrempelige, sfeervolle ruimte waar gasten altijd welkom zijn.</p>
+              <p>Een rustige plek om te lezen, werken of na te praten. De lounge is laagdrempelig en altijd beschikbaar voor gasten die willen ontspannen.</p>
             </div>
 
             <ul class="dot-list" style="margin-top:.8rem;">
-              <li>24/7 receptieservice tijdens openingstijden</li>
-              <li>Rustige leeshoek en kleine bibliotheek</li>
-              <li>Koffie- en theefaciliteiten beschikbaar</li>
-              <li>Ruimte voor informeel overleg of kleine bijeenkomsten</li>
+              <li>Leeshoek met lokale en nationale titels</li>
+              <li>Koffie- en theefaciliteiten</li>
+              <li>Informatiepunt voor lokale activiteiten</li>
+              <li>Ruimte voor kleine, informele bijeenkomsten</li>
             </ul>
 
             <div style="margin-top:.8rem;">
-              <button class="button primary" onclick="location.href='team.html'">Ontmoet ons team</button>
+              <a class="button primary" href="team.html">Ontmoet ons team</a>
               <button class="accordion-toggle" data-target="acc-lobby" aria-expanded="false">Meer info</button>
             </div>
 
             <div id="acc-lobby" class="accordion" aria-hidden="true">
-              <p style="margin-top:.6rem;">Onze receptiemedewerkers adviseren graag over het beste moment voor ontbijt, buitenactiviteiten en lokale partners die bij uw verblijf passen.</p>
+              <p style="margin-top:.6rem;">Onze receptiemedewerkers adviseren over wandelroutes, fietsroutes en reserveringen bij lokale partners — vraag naar actuele opties.</p>
             </div>
           </div>
         </section>
 
-        <!-- D: Ervaringen in de omgeving (use activities and location images) -->
         <section class="feature reverse reveal" aria-labelledby="experiences-heading" style="margin-top:var(--space-lg);">
           <div>
-            <img class="feature-media" src="images/activities-ai.jpg" alt="Wandelroutes en buitenactiviteiten nabij Hotel Aurora, paden en uitzicht" />
-            <!-- Afbeelding toont wandelroutes en buitenactiviteiten in de omgeving van het hotel -->
+            <img class="feature-media" src="images/activities-ai.jpg" alt="Activiteiten: wandelroutes, excursies en buitenactiviteiten nabij het hotel" />
+            <!-- Afbeelding toont wandelroutes en activiteiten in de omgeving -->
           </div>
 
           <div class="feature-body">
             <h3 id="experiences-heading">Ervaringen in de omgeving</h3>
             <div class="prose">
-              <p>Hotel Aurora ligt dicht bij bos, duin en kust — ideaal voor wie de natuur wil beleven. Wij werken samen met lokale gidsen en producenten om uw verblijf te verrijken.</p>
+              <p>De omgeving nodigt uit tot ontdekking. We besteden aandacht aan duurzame samenwerkingen met lokale gidsen en producenten voor authentieke belevingen.</p>
             </div>
 
             <ul class="dot-list" style="margin-top:.8rem;">
               <li>Geleide wandelingen en thematische excursies</li>
-              <li>Lokale producenten: kaas, brood en kleine boerderijbezoeken</li>
-              <li>Fietsroutes met verhuur en kaartmateriaal</li>
-              <li>Rustige uitkijkpunten en picknicklocaties op loopafstand</li>
+              <li>Fietsroutes en verhuur via lokale partners</li>
+              <li>Bezoeken aan lokale producenten mogelijk</li>
+              <li>Picknick- en uitkijkplekken op loopafstand</li>
             </ul>
 
             <div style="margin-top:.8rem;">
-              <a class="button primary" href="gastenboek.html">Bekijk ervaringen</a>
+              <a class="button primary" href="gastenboek.html">Lees ervaringen</a>
               <button class="accordion-toggle" data-target="acc-experience" aria-expanded="false">Praktische tips</button>
             </div>
 
             <div id="acc-experience" class="accordion" aria-hidden="true">
-              <p style="margin-top:.6rem;">We adviseren geschikte schoenen en een laagjes-structuur voor wandelingen. Voor georganiseerde activiteiten raden we vroegtijdig reserveren aan — vraag naar beschikbare datums bij de receptie.</p>
+              <p style="margin-top:.6rem;">Advies: draag geschikte schoenen en laagjes voor wandelingen. Voor georganiseerde activiteiten raden we vroegtijdig reserveren aan.</p>
             </div>
           </div>
         </section>
 
-        <!-- E: Zakelijk & events -->
         <section class="feature reveal" aria-labelledby="events-heading" style="margin-top:var(--space-lg);">
           <div>
-            <img class="feature-media" src="images/hero-ai.jpg" alt="Algemene sfeer en exterieur van Hotel Aurora, geschikt voor kleinschalige events" />
-            <!-- Afbeelding toont hotel-exterieur en sfeer die geschikt is voor zakelijke bijeenkomsten -->
+            <img class="feature-media" src="images/hero-ai.jpg" alt="Hotel exterieur en sfeer, geschikt voor kleinschalige zakelijke bijeenkomsten" />
+            <!-- Afbeelding toont hotel exterieur en sfeer voor zakelijke events -->
           </div>
 
           <div class="feature-body">
             <h3 id="events-heading">Zakelijk & events</h3>
             <div class="prose">
-              <p>Voor kleinschalige bijeenkomsten bieden wij intieme ruimtes met professionele verzorging. Onze aanpak is persoonlijk — van catering tot technische ondersteuning.</p>
+              <p>Voor kleinschalige zakelijke bijeenkomsten bieden wij verzorgde ruimtes en persoonlijke ondersteuning, inclusief catering en technische mogelijkheden op aanvraag.</p>
             </div>
 
             <ul class="dot-list" style="margin-top:.8rem;">
               <li>Kleine vergaderruimte voor tot 18 personen</li>
-              <li>Dagarrangementen: koffie, lunch en breaks</li>
-              <li>Technische ondersteuning op aanvraag (projector, wifi)</li>
-              <li>Netwerklunches met lokale producten mogelijk</li>
+              <li>Dagarrangementen met koffie, lunch en breaks</li>
+              <li>Technische ondersteuning en wifi</li>
+              <li>Op maat gemaakte catering met lokale producten</li>
             </ul>
 
             <div style="margin-top:.8rem;">
-              <button class="button primary" onclick="location.href='vacatures.html'">Informatie aanvragen</button>
+              <a class="button primary" href="vacatures.html">Informatie aanvragen</a>
               <button class="accordion-toggle" data-target="acc-events" aria-expanded="false">Contact opnemen</button>
             </div>
 
             <div id="acc-events" class="accordion" aria-hidden="true">
-              <p style="margin-top:.6rem;">Voor evenement-aanvragen kunt u ons events-team mailen of bellen. We bespreken graag cateringwensen en opstelling voor uw bijeenkomst.</p>
+              <p style="margin-top:.6rem;">Voor evenementen kunt u ons team mailen voor beschikbaarheid en een offerte op maat.</p>
             </div>
           </div>
         </section>
 
         <!-- Practical info -->
         <section class="section" aria-labelledby="praktisch2-heading" style="margin-top:var(--space-lg);">
-          <div class="container">
+          <div class="container" style="padding:0;">
             <h3 id="praktisch2-heading">Praktische informatie</h3>
 
             <div class="practical" style="margin-top:var(--space);">
               <div class="card reveal">
-                <h4 style="margin:0 0 .5rem 0;">In- & uitchecken</h4>
-                <p style="margin:0;">Inchecken vanaf 15:00. Uitchecken tot 11:00. Vroeg inchecken/laat uitchecken mogelijk in overleg en afhankelijk van beschikbaarheid.</p>
+                <h4 style="margin:0 0 .4rem 0;">In- & uitchecken</h4>
+                <p style="margin:0;">Inchecken vanaf 15:00. Uitchecken tot 11:00. Vroeg inchecken of laat uitchecken in overleg mogelijk.</p>
               </div>
 
               <div class="card reveal">
-                <h4 style="margin:0 0 .5rem 0;">Ontbijt</h4>
-                <p style="margin:0;">Dagelijks 07:30 — 10:30. Ontbijt is optioneel en wordt op locatie met lokale producten bereid. Speciale dieetwensen vooraf doorgeven.</p>
+                <h4 style="margin:0 0 .4rem 0;">Ontbijt</h4>
+                <p style="margin:0;">Dagelijks 07:30 — 10:30. Lokale en verse producten, optie tot roomservice op aanvraag.</p>
               </div>
 
               <div class="card reveal">
-                <h4 style="margin:0 0 .5rem 0;">Parkeren & bereikbaarheid</h4>
-                <p style="margin:0;">Gratis parkeerruimte bij het hotel en laadpalen voor elektrische auto's. Goede busverbindingen naar de dichtstbijzijnde stad (15–20 min).</p>
+                <h4 style="margin:0 0 .4rem 0;">Parkeren & bereikbaarheid</h4>
+                <p style="margin:0;">Gratis parkeerruimte bij het hotel, laadpalen beschikbaar. Openbaar vervoer op korte afstand.</p>
               </div>
 
               <div class="card reveal" style="grid-column: 1 / -1;">
-                <h4 style="margin:0 0 .5rem 0;">Toegankelijkheid & voorzieningen</h4>
-                <p style="margin:0;">Het hotel heeft gedeeltelijke toegankelijkheid; voor specifieke aanpassingen (rolstoelvriendelijke kamers, hulp bij transfer) verzoeken we u contact op te nemen vóór boeking zodat we kunnen assisteren.</p>
+                <h4 style="margin:0 0 .4rem 0;">Toegankelijkheid</h4>
+                <p style="margin:0;">Beperkte toegankelijkheid in delen van het hotel; vraag naar aangepaste voorzieningen en beschikbare kamers vóór boeking.</p>
               </div>
             </div>
           </div>
@@ -354,7 +331,7 @@
       <div class="container" style="display:flex; gap:var(--space); align-items:center; justify-content:space-between; flex-wrap:wrap;">
         <div style="max-width:65ch;">
           <h3 style="margin:0;">Plan uw verblijf bij Hotel Aurora</h3>
-          <p style="margin:.5rem 0 0 0; color:var(--color-muted);">Heeft u vragen over een faciliteit of wilt u een arrangement? We helpen u graag met reserveringen en advies op maat.</p>
+          <p style="margin:.5rem 0 0 0; color:var(--color-muted);">Heeft u vragen over onze faciliteiten of wilt u een arrangement? We helpen graag met reserveringen en advies op maat.</p>
         </div>
 
         <div style="display:flex; gap:.75rem;">
@@ -365,7 +342,7 @@
     </section>
   </main>
 
-  <!-- Footer (consistent) -->
+  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex; gap:var(--space-lg); flex-wrap:wrap; align-items:flex-start; padding-top:1.25rem; padding-bottom:1.25rem;">
       <div style="flex:1 1 360px;">
@@ -390,9 +367,9 @@
     </div>
   </footer>
 
-  <!-- JavaScript: accordion toggles + scroll reveal -->
+  <!-- JS: accordion + reveal + sticky header (light, vanilla) -->
   <script>
-    // Sticky header behavior (consistent with other pages)
+    // Sticky header (consistent)
     (function(){
       const header = document.getElementById('site-header');
       const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
@@ -400,20 +377,14 @@
       onScroll();
     })();
 
-    // Accordion toggles for "Meer details" buttons
+    // Accordion toggles
     (function(){
       const toggles = document.querySelectorAll('.accordion-toggle');
       toggles.forEach(btn => {
         btn.addEventListener('click', () => {
           const targetId = btn.getAttribute('data-target');
-          const acc = document.getElementById(targetId) || document.getElementById(btn.getAttribute('data-target'));
-          // If no explicit target, try next .accordion sibling
-          let panel = acc;
-          if(!panel){
-            // find nearest .feature and its .accordion
-            const feat = btn.closest('.feature') || btn.closest('.feature-body');
-            panel = feat ? feat.querySelector('.accordion') : null;
-          }
+          const feat = btn.closest('.feature') || btn.closest('.feature-body');
+          const panel = targetId ? document.getElementById(targetId) : (feat ? feat.querySelector('.accordion') : null);
           if(!panel) return;
           const isOpen = panel.classList.toggle('open');
           panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
@@ -423,7 +394,7 @@
       });
     })();
 
-    // Simple scroll-reveal: add .is-visible when element enters viewport
+    // Scroll reveal (IntersectionObserver)
     (function(){
       const revealEls = document.querySelectorAll('.reveal');
       const io = new IntersectionObserver((entries) => {
@@ -434,7 +405,6 @@
           }
         });
       }, {rootMargin: '0px 0px -6% 0px', threshold: 0.08});
-
       revealEls.forEach(el => io.observe(el));
     })();
   </script>

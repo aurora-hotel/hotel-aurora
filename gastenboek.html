@@ -44,21 +44,29 @@
   </style>
 </head>
 <body>
-  <!-- Header (consistent with site) -->
+  
   <header class="header" id="site-header">
-    <div class="container header-inner">
-      <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Hotel Aurora</a></div>
-      <nav class="nav" aria-label="Hoofdmenu">
-        <a href="index.html">Home</a>
-        <a href="kamers.html">Onze kamers</a>
-        <a href="faciliteiten.html">Faciliteiten</a>
-        <a href="team.html">Ons team</a>
-        <a href="vacatures.html">Vacatures</a>
-        <a href="gastenboek.html" aria-current="page">Gastenboek</a>
-        <a class="cta" href="beschikbaarheid.html" role="button">Beschikbaarheid</a>
-      </nav>
+  <div class="container header-inner">
+    <div class="logo">
+      <a href="index.html" style="color:inherit; text-decoration:none;">Hotel Aurora</a>
     </div>
-  </header>
+
+    <!-- Hamburger / mobile toggle -->
+    <button id="nav-toggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
+
+    <nav id="site-nav" class="nav" aria-label="Hoofdmenu">
+      <a href="index.html">Home</a>
+      <a href="kamers.html">Onze kamers</a>
+      <a href="faciliteiten.html">Faciliteiten</a>
+      <a href="team.html">Ons team</a>
+      <a href="vacatures.html">Vacatures</a>
+      <a href="gastenboek.html">Gastenboek</a>
+      <a class="cta" href="beschikbaarheid.html" role="button">Beschikbaarheid</a>
+    </nav>
+  </div>
+</header>
 
   <!-- HERO (zelfde stijl als team) -->
   <section class="hero" aria-labelledby="gk-hero">

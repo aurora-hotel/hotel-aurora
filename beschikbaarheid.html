@@ -5,14 +5,32 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Beschikbaarheid — Hotel Aurora</title>
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Bekijk de actuele beschikbaarheid van Hotel Aurora. De week 6 t/m 11 juli is volgeboekt.">
+  <meta name="description" content="Bekijk de actuele beschikbaarheid van Hotel Aurora. De week 6 t/m 11 juli 2026 is volgeboekt.">
+  <link rel="canonical" href="https://hotel-aurora.github.io/beschikbaarheid.html">
+  <meta property="og:url" content="https://hotel-aurora.github.io/beschikbaarheid.html">
+  <style>
+    /* Kleine pagina-specifieke tweaks (bruikbaar bovenop style.css) */
+    .calendar { display:grid; grid-template-columns: repeat(7, 1fr); gap: .5rem; }
+    .calendar .day { padding:.6rem; border-radius:8px; text-align:center; min-height:68px; display:flex; flex-direction:column; justify-content:space-between; }
+    .calendar .day.header { font-weight:700; background:transparent; border:none; min-height:auto; }
+    .calendar-wrap { overflow:auto; -webkit-overflow-scrolling:touch; padding-bottom:.5rem; }
+    .badge-booked { background: rgba(194,59,59,0.12); color: #c23b3b; padding: .25rem .45rem; border-radius:999px; font-weight:700; font-size:.8rem; }
+    .badge-available { background: rgba(47,143,91,0.08); color: #2f8f5b; padding: .25rem .45rem; border-radius:999px; font-weight:700; font-size:.8rem; }
+    @media (max-width:640px) {
+      .calendar .day { min-height:56px; padding:.5rem; }
+      .calendar .day .date { font-size:.95rem; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Header (shared) -->
   <header class="header" id="site-header">
     <div class="container header-inner">
       <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Hotel Aurora</a></div>
       <nav class="nav" aria-label="Hoofdmenu">
         <a href="index.html">Home</a>
+        <a href="kamers.html">Onze kamers</a>
+        <a href="faciliteiten.html">Faciliteiten</a>
         <a href="team.html">Ons team</a>
         <a href="vacatures.html">Vacatures</a>
         <a href="gastenboek.html">Gastenboek</a>
@@ -21,31 +39,32 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero" aria-labelledby="avail-hero">
-      <!-- Afbeelding: rustige locatiefoto als achtergrond -->
-      <!-- Afbeelding toont paden en begroeiing rond het hotel -->
-      <img src="images/location-ai.jpg" alt="Omgeving van Hotel Aurora: paden, duinen en bos met uitzicht" class="hero-media" />
-      <div class="container">
-        <div style="max-width:760px; color:var(--color-white);">
-          <h1 id="avail-hero">Beschikbaarheid</h1>
-          <p class="lead">Controleer de beschikbaarheid — let op: de week van 6 juli tot en met 11 juli is volgeboekt.</p>
-          <div style="margin-top:1rem;">
-            <a class="button primary" href="#calendar">Bekijk kalender</a>
-            <a class="button ghost" href="#reserve">Maak een reservering</a>
-          </div>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="avail-hero">
+    <!-- Afbeelding: rustige locatiefoto als achtergrond -->
+    <!-- Beeld toont paden en begroeiing rond het hotel -->
+    <img src="images/location-ai.jpg" alt="Omgeving van Hotel Aurora: paden, duinen en bos met uitzicht" class="hero-media" />
+    <div class="container">
+      <div style="max-width:760px; color:var(--color-white); position:relative; z-index:2; padding-top:3rem; padding-bottom:3rem;">
+        <h1 id="avail-hero">Beschikbaarheid</h1>
+        <p class="lead">Controleer de beschikbaarheid voor uw verblijf. Let op: de week van 6 juli tot en met 11 juli 2026 is volgeboekt.</p>
+        <div style="margin-top:1rem;">
+          <a class="button primary" href="#calendar">Bekijk kalender</a>
+          <a class="button ghost" href="#reserve">Maak een reservering</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="calendar" class="section" aria-labelledby="calendar-heading">
+  <main>
+    <section id="calendar-section" class="section" aria-labelledby="calendar-heading">
       <div class="container">
         <div class="kicker">Kalender</div>
         <h2 id="calendar-heading" style="margin-top:.5rem;">Beschikbaarheid juli 2026</h2>
-        <p class="prose" style="margin-top:1rem;">In de maand juli is de week van 6 t/m 11 volledig volgeboekt. De overige data zijn beschikbaar. Selecteer een aankomst- en vertrekdatum in het reserveringsformulier; het formulier controleert automatisch op overlappende, volgeboekte data.</p>
+        <p class="prose" style="margin-top:1rem;">De kalender hieronder geeft de beschikbaarheid voor juli 2026 weer. De dagen 6 t/m 11 juli zijn als volgeboekt gemarkeerd. Selecteer een aankomst- en vertrekdatum in het reserveringsformulier; de selectie controleert automatisch of de gekozen periode overlapt met volgeboekte data.</p>
 
         <div class="calendar-wrap" style="margin-top:1rem;">
-          <div class="calendar" id="calendar-grid" aria-hidden="false"></div>
+          <div class="calendar" id="calendar-grid" role="grid" aria-labelledby="calendar-heading"></div>
         </div>
 
         <div style="margin-top:.75rem; color:var(--color-muted); font-size:.95rem;">
@@ -59,7 +78,7 @@
       <div class="container">
         <div class="kicker">Reserveren</div>
         <h2 id="reserve-heading" style="margin-top:.5rem;">Boek uw verblijf</h2>
-        <p class="prose" style="margin-top:1rem;">Kies uw aankomst- en vertrekdatum. Als uw periode overlapt met een volgeboekte dag, krijgt u direct een foutmelding.</p>
+        <p class="prose" style="margin-top:1rem;">Kies uw aankomst- en vertrekdatum. Als uw periode overlapt met een volgeboekte dag, krijgt u direct een foutmelding en suggesties om te wijzigen.</p>
 
         <form id="booking-form" class="form" style="max-width:520px; margin-top:1rem;" onsubmit="submitBooking(event)">
           <label for="checkin">Aankomstdatum</label>
@@ -83,11 +102,16 @@
 
           <div id="booking-feedback" aria-live="polite" style="margin-top:.75rem;"></div>
         </form>
+
+        <div style="margin-top:1.5rem;">
+          <h4>Opmerking</h4>
+          <p class="prose">Dit is een demo-frontend: verzenden is niet gekoppeld aan een backend. De kalender en formuliervalidering tonen toegankelijke voorbeelden van beschikbaarheidscontrole.</p>
+        </div>
       </div>
     </section>
-
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex; gap:var(--space-lg); flex-wrap:wrap; align-items:flex-start; padding-top:1.25rem; padding-bottom:1.25rem;">
       <div style="flex:1 1 360px;">
@@ -98,9 +122,9 @@
         <h5 style="margin:.25rem 0;">Snel naar</h5>
         <ul style="list-style:none; padding:0; margin:0;">
           <li><a href="index.html">Home</a></li>
+          <li><a href="kamers.html">Onze kamers</a></li>
+          <li><a href="faciliteiten.html">Faciliteiten</a></li>
           <li><a href="team.html">Ons team</a></li>
-          <li><a href="vacatures.html">Vacatures</a></li>
-          <li><a href="gastenboek.html">Gastenboek</a></li>
         </ul>
       </div>
       <div style="flex:1 1 240px;">
@@ -111,58 +135,40 @@
   </footer>
 
   <script>
-    // Sticky header
-    (function(){
-      const header = document.getElementById('site-header');
-      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
-      window.addEventListener('scroll', onScroll, {passive:true});
-      onScroll();
-    })();
+    // Helper: create a Date at local midnight from yyyy-mm-dd string
+    function dateFromInput(value) {
+      // value expected as "YYYY-MM-DD"
+      const parts = value.split('-').map(Number);
+      return new Date(parts[0], parts[1]-1, parts[2]);
+    }
 
-    // Calendar rendering for July 2026
     (function(){
-      const month = 6; // July (0-based: 0=Jan, so 6 = July)
+      // Render calendar for July 2026 and mark 6-11 as booked (inclusive)
       const year = 2026;
-      const bookedStart = new Date(year, month, 6); // 6 July 2026
-      const bookedEnd = new Date(year, month, 11);  // 11 July 2026
-      // Helper: format day number
-      function dayButton(day, isBooked){
-        const div = document.createElement('div');
-        div.className = 'day' + (isBooked ? ' booked' : '');
-        const dateEl = document.createElement('div');
-        dateEl.className = 'date';
-        dateEl.textContent = day;
-        const note = document.createElement('div');
-        note.className = 'note';
-        if(isBooked){
-          note.innerHTML = '<span class="badge-booked">Volgeboekt</span>';
-        } else {
-          note.innerHTML = '<span class="badge-available">Beschikbaar</span>';
-        }
-        div.appendChild(dateEl);
-        div.appendChild(note);
-        return div;
-      }
+      const monthIndex = 6; // July (0-based)
+      const bookedStart = new Date(year, monthIndex, 6); // inclusive
+      const bookedEndInclusive = new Date(year, monthIndex, 11); // inclusive
+      const bookedEndExclusive = new Date(bookedEndInclusive.getTime());
+      bookedEndExclusive.setDate(bookedEndExclusive.getDate() + 1); // exclusive upper bound
 
-      function renderCalendar(){
-        const grid = document.getElementById('calendar-grid');
+      const grid = document.getElementById('calendar-grid');
+
+      function renderCalendar() {
         grid.innerHTML = '';
-        // find first weekday and number of days
-        const first = new Date(year, month, 1);
-        const daysInMonth = new Date(year, month+1, 0).getDate();
-        // optional: show day names header
+        // day names header
         const dayNames = ['Zo','Ma','Di','Wo','Do','Vr','Za'];
         dayNames.forEach(n => {
-          const header = document.createElement('div');
-          header.className = 'day';
-          header.style.fontWeight = '700';
-          header.style.background = 'transparent';
-          header.style.border = 'none';
-          header.textContent = n;
-          grid.appendChild(header);
+          const h = document.createElement('div');
+          h.className = 'day header';
+          h.textContent = n;
+          grid.appendChild(h);
         });
-        // add blank slots if month does not start on Sunday
-        const startWeekday = first.getDay(); // 0 (Sun) - 6 (Sat)
+
+        const first = new Date(year, monthIndex, 1);
+        const daysInMonth = new Date(year, monthIndex+1, 0).getDate();
+        const startWeekday = first.getDay(); // 0..6
+
+        // blank cells for start weekday
         for(let i=0;i<startWeekday;i++){
           const empty = document.createElement('div');
           empty.className = 'day';
@@ -170,54 +176,69 @@
           empty.style.border = 'none';
           grid.appendChild(empty);
         }
-        // fill days
+
         for(let d=1; d<=daysInMonth; d++){
-          const current = new Date(year, month, d);
-          const isBooked = current >= bookedStart && current <= bookedEnd;
-          const dayEl = dayButton(d, isBooked);
-          grid.appendChild(dayEl);
+          const dayDate = new Date(year, monthIndex, d);
+          const isBooked = (dayDate >= bookedStart && dayDate <= bookedEndInclusive);
+          const el = document.createElement('div');
+          el.className = 'day' + (isBooked ? ' booked' : '');
+          const dateEl = document.createElement('div');
+          dateEl.className = 'date';
+          dateEl.textContent = d;
+          const note = document.createElement('div');
+          note.className = 'note';
+          if(isBooked){
+            note.innerHTML = '<span class="badge-booked">Volgeboekt</span>';
+          } else {
+            note.innerHTML = '<span class="badge-available">Beschikbaar</span>';
+          }
+          el.appendChild(dateEl);
+          el.appendChild(note);
+          grid.appendChild(el);
         }
       }
 
       renderCalendar();
 
-      // Booking form validation: prevent overlap with booked range
-      const bookingForm = document.getElementById('booking-form');
-      bookingForm.querySelector('#checkin').setAttribute('min', `${year}-07-01`);
-      bookingForm.querySelector('#checkout').setAttribute('min', `${year}-07-02`);
+      // Set date input min/max for July 2026
+      const checkin = document.getElementById('checkin');
+      const checkout = document.getElementById('checkout');
+      const pad = (n)=> n.toString().padStart(2,'0');
+      const monthStr = (m)=> `${m.getFullYear()}-${pad(m.getMonth()+1)}-${pad(m.getDate())}`;
+      const firstOfMonth = new Date(year, monthIndex, 1);
+      const lastOfMonth = new Date(year, monthIndex+1, 0);
+      const minDate = monthStr(firstOfMonth);
+      const maxDate = monthStr(lastOfMonth);
+      checkin.setAttribute('min', minDate);
+      checkin.setAttribute('max', maxDate);
+      checkout.setAttribute('min', monthStr(new Date(year, monthIndex, 2))); // checkout must be at least next day
+      checkout.setAttribute('max', maxDate);
 
+      // Booking validation: treat booking nights as [checkin, checkout) (checkout exclusive)
       window.submitBooking = function(e){
         e.preventDefault();
-        const checkin = new Date(document.getElementById('checkin').value);
-        const checkout = new Date(document.getElementById('checkout').value);
         const fb = document.getElementById('booking-feedback');
+        fb.textContent = '';
+        const inStr = checkin.value;
+        const outStr = checkout.value;
+        if(!inStr || !outStr) { fb.style.color='crimson'; fb.textContent='Kies zowel aankomst- als vertrekdatum.'; return; }
+        const inDate = dateFromInput(inStr);
+        const outDate = dateFromInput(outStr);
 
-        if (!(checkin instanceof Date) || isNaN(checkin) || !(checkout instanceof Date) || isNaN(checkout)) {
-          fb.style.color = 'crimson';
-          fb.textContent = 'Kies geldige aankomst- en vertrekdata.';
-          return;
-        }
-        if(checkout <= checkin){
-          fb.style.color = 'crimson';
-          fb.textContent = 'Vertrek moet na aankomst liggen.';
-          return;
-        }
+        if(isNaN(inDate) || isNaN(outDate)) { fb.style.color='crimson'; fb.textContent='Kies geldige datums.'; return; }
+        if(outDate <= inDate) { fb.style.color='crimson'; fb.textContent='Vertrek moet na aankomst liggen.'; return; }
 
-        // Check overlap with booked range (inclusive)
-        // overlap if checkin <= bookedEnd && checkout >= bookedStart+1 (we consider nights)
-        const bookedStart = new Date(year, month, 6);
-        const bookedEnd = new Date(year, month, 11);
-        // For bookings, checkout on the morning of checkout date -> we'll treat any overlap with [bookedStart, bookedEnd] as conflict
-        if (checkin <= bookedEnd && checkout >= bookedStart) {
-          fb.style.color = 'crimson';
-          fb.innerHTML = 'Helaas — uw gekozen periode overlapt met een volgeboekte periode (6–11 juli 2026). Kies andere data of neem contact op via <a href="mailto:info@hotel-aurora.example">info@hotel-aurora.example</a>.';
+        // Overlap exists if [checkin, checkout) intersects [bookedStart, bookedEndExclusive)
+        // i.e. checkin < bookedEndExclusive && checkout > bookedStart
+        if(inDate < bookedEndExclusive && outDate > bookedStart) {
+          fb.style.color='crimson';
+          fb.innerHTML = 'Helaas — uw gekozen periode overlapt met een volgeboekte periode (6–11 juli 2026). Kies andere data of <a href="mailto:info@hotel-aurora.example">neem contact op</a>.';
           return;
         }
 
-        fb.style.color = 'var(--color-deep-green)';
+        fb.style.color='var(--color-deep-green)';
         fb.textContent = 'Geweldig — uw periode is beschikbaar. Dit is een demo-reservering (geen backend). We sturen u normaal een bevestiging per e-mail.';
-        // reset form after a short delay
-        setTimeout(()=>{ bookingForm.reset(); }, 1400);
+        setTimeout(()=>{ document.getElementById('booking-form').reset(); }, 1200);
       };
     })();
   </script>

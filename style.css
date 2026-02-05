@@ -667,3 +667,58 @@ a:focus, button:focus, input:focus, textarea:focus {
 
 /* Ensure hero content text remains left-aligned inside container */
 .container .prose, .container p, .lead { text-align:left; }
+
+/* ---------- Herstel: room perks, amenities en kleinere vac-sep ---------- */
+/* Plaats dit onderaan style.css */
+
+/* Room perks (badges onder kamertitel) */
+.room-perks {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin-top: .5rem;
+}
+.perk {
+  background: rgba(15,59,45,0.06);
+  color: var(--color-deep-green);
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .95rem;
+}
+
+/* Amenities grid (kamers / faciliteiten) */
+.amenities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space);
+  margin-top: var(--space);
+}
+@media (max-width: 900px) {
+  .amenities { grid-template-columns: repeat(2, 1fr); }
+}
+.amenity {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  padding: .6rem;
+  background: linear-gradient(180deg,#fff,#fbfbfb);
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+.amenity .icon {
+  width:44px; height:44px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  background: rgba(15,59,45,0.08);
+  color: var(--color-deep-green);
+  font-weight:700;
+  flex:0 0 44px;
+}
+
+/* Minder verticale ruimte tussen featured vacancy en vervolg */
+.vac-sep {
+  height: 1px;
+  background: rgba(0,0,0,0.04);
+  margin: var(--space) 0; /* eerder var(--space-lg) — nu smaller */
+  border-radius: 2px;
+}

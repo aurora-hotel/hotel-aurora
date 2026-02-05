@@ -119,7 +119,7 @@
       </div>
     </section>
 
-    <!-- Faciliteiten preview -->
+    <!-- Faciliteiten preview (buttons i.p.v. tekstlinks) -->
     <section class="section facilities" aria-labelledby="facilities-heading">
       <div class="container">
         <div class="kicker">Faciliteiten</div>
@@ -135,7 +135,10 @@
             <div>
               <h3 style="margin:.5rem 0;">Wellness & Spa</h3>
               <p class="lead" style="margin:0;">Kleinschalige spa met behandelingen op maat en rustruimtes met uitzicht op de natuur.</p>
-              <a href="faciliteiten.html#wellness-heading" style="margin-top:.5rem;display:inline-block;">Meer over wellness →</a>
+              <div style="margin-top:.6rem; display:flex; gap:.5rem;">
+                <a class="button primary" href="faciliteiten.html#wellness-heading" aria-label="Meer over wellness">Meer over wellness</a>
+                <a class="button ghost" href="beschikbaarheid.html" aria-label="Beschikbaarheid wellness">Beschikbaarheid</a>
+              </div>
             </div>
           </article>
 
@@ -147,7 +150,10 @@
             <div>
               <h3 style="margin:.5rem 0;">Restaurant & ontbijt</h3>
               <p class="lead" style="margin:0;">Een seizoensgebonden kaart, zorgvuldig ontbijt en een kleine wijnselectie.</p>
-              <a href="faciliteiten.html#dining-heading" style="margin-top:.5rem;display:inline-block;">Reserveer een tafel →</a>
+              <div style="margin-top:.6rem; display:flex; gap:.5rem;">
+                <a class="button primary" href="faciliteiten.html#dining-heading" aria-label="Meer over restaurant">Meer over restaurant</a>
+                <a class="button ghost" href="beschikbaarheid.html" aria-label="Beschikbaarheid restaurant">Beschikbaarheid</a>
+              </div>
             </div>
           </article>
 
@@ -159,7 +165,10 @@
             <div>
               <h3 style="margin:.5rem 0;">Activiteiten</h3>
               <p class="lead" style="margin:0;">Geleide wandelingen, fietsen en kleinschalige excursies met lokale partners.</p>
-              <a href="faciliteiten.html#experiences-heading" style="margin-top:.5rem;display:inline-block;">Bekijk activiteiten →</a>
+              <div style="margin-top:.6rem; display:flex; gap:.5rem;">
+                <a class="button primary" href="faciliteiten.html#experiences-heading" aria-label="Meer over activiteiten">Meer over activiteiten</a>
+                <a class="button ghost" href="beschikbaarheid.html" aria-label="Beschikbaarheid activiteiten">Beschikbaarheid</a>
+              </div>
             </div>
           </article>
         </div>
@@ -218,8 +227,6 @@
         </div>
       </div>
     </section>
-
-    <!-- (Andere secties zoals team, contact etc. zouden hier kunnen volgen) -->
 
     <!-- REVIEWS: preview — helemaal onderaan vóór footer -->
     <section class="section" aria-labelledby="reviews-heading" id="reviews-preview-section" style="margin-top:var(--space-lg);">
@@ -305,7 +312,6 @@
       const setHeaderOffset = () => {
         const h = header.getBoundingClientRect().height;
         document.documentElement.style.setProperty('--header-height', h + 'px');
-        // apply to booking-bar top if needed via CSS var
         if(bookingBar) bookingBar.style.top = h + 'px';
       };
 
@@ -332,7 +338,6 @@
       const priceDisplay = document.getElementById('bb-price');
       const msgEl = document.getElementById('bb-msg');
 
-      // Helper: parse yyyy-mm-dd to Date at local midnight
       function parseDate(s){
         if(!s) return null;
         const [y,m,d] = s.split('-').map(Number);
@@ -341,32 +346,23 @@
 
       function isWeekendArrival(date){
         if(!date) return false;
-        const dow = date.getDay(); // 0 Sun .. 6 Sat
-        return dow === 5 || dow === 6; // Fri or Sat
+        const dow = date.getDay();
+        return dow === 5 || dow === 6;
       }
 
       function calcPrice(){
         const room = roomEl.value;
         const base = priceEls[room] || priceEls.comfort;
         const guests = parseInt(guestsEl.value, 10) || 1;
-
-        // weekend surcharge if arrival on Fri/Sat
         const arrival = parseDate(checkinEl.value);
         const weekend = isWeekendArrival(arrival);
         let price = base;
         if(weekend) price = Math.round(price * 1.10);
-
-        // extra guests above 1
-        if(guests > 1){
-          price += (guests - 1) * 15;
-        }
-
-        // Format
+        if(guests > 1) price += (guests - 1) * 15;
         priceDisplay.textContent = `Vanaf €${price} / nacht`;
         return price;
       }
 
-      // Validate date logic; returns message or empty string
       function validateDates(){
         msgEl.textContent = '';
         msgEl.style.color = '';
@@ -382,7 +378,6 @@
         return '';
       }
 
-      // Update price on changes
       [checkinEl, checkoutEl, guestsEl, roomEl].forEach(el => {
         el.addEventListener('change', () => {
           calcPrice();
@@ -390,7 +385,6 @@
         });
       });
 
-      // Booking check (on click)
       window.bookingCheck = function(){
         const validation = validateDates();
         if(validation){
@@ -402,11 +396,9 @@
         const price = calcPrice();
         msgEl.style.color = 'var(--color-deep-green)';
         msgEl.innerHTML = `Indicatie: <strong>€${price}</strong> per nacht — neem contact op voor actuele beschikbaarheid. <a href="beschikbaarheid.html" style="margin-left:.5rem;">Bekijk kalender</a>`;
-        // optional visual highlight
         msgEl.scrollIntoView({behavior:'smooth', block:'nearest'});
       };
 
-      // Initialize price display
       calcPrice();
     })();
   </script>

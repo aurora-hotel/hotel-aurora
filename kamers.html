@@ -9,6 +9,58 @@
   <link rel="canonical" href="https://hotel-aurora.github.io/kamers.html">
   <meta property="og:url" content="https://hotel-aurora.github.io/kamers.html">
 
+   <!-- Booking bar (sticky, onder header) -->
+  <div id="booking-bar-wrap" aria-hidden="false">
+    <div class="booking-bar" role="region" aria-label="Boek uw verblijf" id="booking-bar">
+      <div class="container booking-inner">
+        <form id="booking-bar-form" class="booking-form" onsubmit="event.preventDefault(); bookingCheck();">
+          <div class="booking-row">
+            <div class="field">
+              <label for="bb-checkin" class="booking-label">Aankomst</label>
+              <input id="bb-checkin" type="date" class="input booking-input" aria-describedby="bb-msg" required />
+            </div>
+
+            <div class="field">
+              <label for="bb-checkout" class="booking-label">Vertrek</label>
+              <input id="bb-checkout" type="date" class="input booking-input" aria-describedby="bb-msg" required />
+            </div>
+
+            <div class="field">
+              <label for="bb-guests" class="booking-label">Gasten</label>
+              <select id="bb-guests" class="input booking-input" aria-describedby="bb-msg">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="bb-room" class="booking-label">Kamertype</label>
+              <select id="bb-room" class="input booking-input" aria-describedby="bb-msg">
+                <option value="comfort" selected>Comfort</option>
+                <option value="deluxe">Deluxe</option>
+                <option value="suite">Suite</option>
+              </select>
+            </div>
+
+            <div class="price-block" aria-hidden="false">
+              <div class="price-label">Vanaf</div>
+              <div id="bb-price" class="price">€119 / nacht</div>
+            </div>
+
+            <div class="cta-block">
+              <button type="submit" class="button primary booking-cta">Bekijk beschikbaarheid</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Accessible inline feedback -->
+        <div id="bb-msg" class="booking-msg" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+  
   <style>
     /* Page-specific small fixes (minimal) */
     .hero { min-height: 64vh; } /* consistent with other pages */

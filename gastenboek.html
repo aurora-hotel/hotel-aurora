@@ -6,27 +6,7 @@
   <title>Gastenboek — Hotel Aurora</title>
   <link rel="stylesheet" href="style.css">
   <meta name="description" content="Ervaringen van gasten bij Hotel Aurora — authentieke reviews, gemiddelde waardering en recente berichten.">
-  <link rel="canonical" href="https://hotel-aurora.github.io/gastenboek.html">
-  <meta property="og:url" content="https://hotel-aurora.github.io/gastenboek.html">
-
-  <style>
-    /* Page-specific styles: ensure apply-card layout available and tidy list */
-    .apply-card { max-width:820px; margin: var(--space-lg) auto; padding: var(--space-lg); border-radius:12px; background: linear-gradient(180deg,#fff,#fbfbfb); border:1px solid rgba(0,0,0,0.04); box-shadow: 0 10px 30px rgba(17,17,17,0.04); }
-    .apply-grid { display:grid; grid-template-columns: 1fr 160px; gap: var(--space); align-items:start; }
-    @media (max-width:860px){ .apply-grid { grid-template-columns: 1fr; } }
-    .reviews-grid { display:grid; gap:var(--space-lg); grid-template-columns: repeat(3,1fr); }
-    @media (max-width:1100px){ .reviews-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width:700px){ .reviews-grid { grid-template-columns: 1fr; } }
-
-    .review.card { padding: var(--space); border-radius:12px; background: linear-gradient(180deg,#fff,#fbfbfb); border:1px solid rgba(0,0,0,0.03); }
-    .review .meta { color:var(--color-muted); font-size:.95rem; margin-top:.25rem; }
-    .rating { color:#f1c40f; font-weight:800; letter-spacing:0.02em; }
-    .avg-rating { display:flex; gap:.6rem; align-items:center; }
-    .avg-rating .score { font-size:1.5rem; font-weight:900; color:var(--color-deep-green); }
-    .count { color:var(--color-muted); font-size:.95rem; }
-    .sr-note { color:var(--color-muted); font-size:.95rem; }
-    .empty-state { padding:var(--space); border-radius:10px; background:linear-gradient(180deg,#fff,#fbfbfb); border:1px solid rgba(0,0,0,0.03); text-align:center; }
-  </style>
+  <meta name="robots" content="index,follow">
 </head>
 <body>
   <!-- Header (identiek aan andere pagina's) -->
@@ -49,7 +29,7 @@
   <section class="hero" aria-labelledby="gk-hero">
     <!-- Afbeelding: warme hotelomgeving (hergebruik) -->
     <!-- Beeld toont de rustige buitenomgeving en hotelgevel bij zonsopgang -->
-    <img src="images/gastenboek-ai.jpg" alt="Hotel Aurora: rustige gevel en tuin bij zonsopgang" class="hero-media" />
+    <img src="images/hero-ai.jpg" alt="Hotel Aurora: rustige gevel en tuin bij zonsopgang" class="hero-media" />
     <div class="container" style="position:relative; z-index:2; padding:var(--space-lg) 0;">
       <h1 id="gk-hero">Gastenboek</h1>
       <p class="lead" style="max-width:65ch;">Lees eerlijke ervaringen van gasten die bij ons verbleven. Deel gerust uw indrukken — uw feedback helpt ons verbeteren en inspireert toekomstige bezoekers.</p>
@@ -63,7 +43,7 @@
           <div>
             <div class="kicker">Ervaringen</div>
             <h2 style="margin-top:.5rem;">Wat gasten over ons zeggen</h2>
-            <p class="sr-note" style="margin-top:.5rem;">Gemiddelde beoordeling gebaseerd op recente inzendingen. Alle reviews zijn openbaar en frontend-only opgeslagen.</p>
+            <p class="sr-note" style="margin-top:.5rem;">Gemiddelde beoordeling gebaseerd op recente inzendingen. Alle reviews worden local-first opgeslagen en weergegeven.</p>
           </div>
 
           <div style="display:flex; gap:var(--space); align-items:center;">
@@ -85,14 +65,14 @@
           <p style="margin:.5rem 0 0 0;">We nodigen u uit om de eerste gastreview te schrijven — eerlijk, kort en behulpzaam voor andere reizigers.</p>
         </div>
 
-        <!-- Review form (styled like vacatures / beschikbaarheid) -->
+        <!-- Review form (styled like apply-card) -->
         <section aria-labelledby="review-form-heading" style="margin-top:var(--space-lg);">
           <div class="kicker">Plaats een review</div>
           <h3 id="review-form-heading" style="margin-top:.5rem;">Deel uw ervaring</h3>
           <p class="prose" style="margin-top:.5rem;">Uw review helpt ons verbeteren en biedt toekomstige gasten een realistisch beeld van hun verblijf. We tonen alleen voornaam + initiaal en de tekst (geen e-mails publiekelijk).</p>
 
           <div class="apply-card" style="margin-top:var(--space);">
-            <form id="review-form" onsubmit="addReview(event)">
+            <form id="review-form" onsubmit="addReview(event)" novalidate>
               <div class="apply-grid" style="grid-template-columns: 1fr 140px;">
                 <div>
                   <label for="rev-name">Naam</label>
@@ -155,7 +135,7 @@
   </footer>
 
   <script>
-    // Sticky header (consistent)
+    // Sticky header shadow (consistent across site)
     (function(){
       const header = document.getElementById('site-header');
       const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
@@ -163,31 +143,30 @@
       onScroll();
     })();
 
-    // Small utilities
+    // Simple helper to escape text for insertion
     function escapeHtml(text){
       if(!text) return '';
       return text.replace(/[&<>"']/g, function(m){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m]; });
     }
 
-    // Reviews storage key
+    // Local storage key for reviews
     const STORAGE_KEY = 'aurora_reviews_v1';
 
-    // Initial sample reviews (kept credible)
+    // Credible initial reviews (used if no localStorage)
     const initialReviews = [
-      {name: 'Sofie B.', date: '2026-01-14', rating:5, text:'Prachtig verblijf: rustige ligging en uitstekende service. Ontbijt met lokale producten was hemels.'},
-      {name: 'Mark v.', date: '2026-01-10', rating:4, text:'Charmant hotel, fijne kamer en goede tips voor wandelroutes.'},
+      {name: 'Sofie B.', date: '2026-01-18', rating:5, text:'Prachtig verblijf: rustige ligging en uitstekende service. Ontbijt met lokale producten was bijzonder smaakvol.'},
+      {name: 'Mark v.', date: '2026-01-10', rating:4, text:'Charmant hotel met persoonlijke service. Kamer en bedden zeer comfortabel — fijne uitvalsbasis voor wandelingen.'},
       {name: 'Lieke K.', date: '2025-12-21', rating:5, text:'Perfecte combinatie van rust en kwaliteit. De spa is kleinschalig maar heel verzorgd.'}
     ];
 
-    // Load reviews from localStorage or use initial
     function loadReviews(){
-      try{
+      try {
         const raw = localStorage.getItem(STORAGE_KEY);
-        if(raw) {
+        if(raw){
           const parsed = JSON.parse(raw);
           if(Array.isArray(parsed) && parsed.length) return parsed;
         }
-      }catch(e){}
+      } catch(e){}
       return initialReviews.slice();
     }
 
@@ -197,7 +176,6 @@
 
     let reviews = loadReviews();
 
-    // Render reviews grid and stats
     function renderReviews(){
       const grid = document.getElementById('reviews-grid');
       const noState = document.getElementById('no-reviews');
@@ -212,21 +190,18 @@
         noState.style.display = 'none';
       }
 
-      // compute average
       const avg = reviews.reduce((s,r)=> s + (r.rating||0),0) / reviews.length;
       const avgRounded = Math.round(avg*10)/10;
       document.getElementById('avg-score').textContent = avgRounded.toFixed(1);
       document.getElementById('avg-stars').textContent = '★'.repeat(Math.round(avg)) + '☆'.repeat(5 - Math.round(avg));
       document.getElementById('total-count').textContent = `${reviews.length} reviews`;
 
-      // Sort: most recent first
       const list = reviews.slice().sort((a,b)=> new Date(b.date) - new Date(a.date));
       list.forEach(r => {
         const el = document.createElement('article');
         el.className = 'review card reveal';
         el.setAttribute('role','article');
 
-        // format date for display
         let displayDate = r.date;
         if(/^\d{4}-\d{2}-\d{2}$/.test(r.date)){
           const d = new Date(r.date);
@@ -246,11 +221,9 @@
         grid.appendChild(el);
       });
 
-      // apply simple reveal for newly added elements
       observeReveals();
     }
 
-    // Observe reveal elements (subtle)
     function observeReveals(){
       const revs = document.querySelectorAll('.reveal');
       const io = new IntersectionObserver((entries, observer) => {
@@ -264,7 +237,6 @@
       revs.forEach(r => io.observe(r));
     }
 
-    // Add review (from form)
     function addReview(e){
       e.preventDefault();
       const nameEl = document.getElementById('rev-name');
@@ -282,7 +254,6 @@
         return;
       }
 
-      // sanitize name to only first name + initial if user entered more
       const nameParts = name.split(/\s+/);
       const displayName = nameParts.length > 1 ? `${nameParts[0]} ${nameParts[1].charAt(0)}.` : nameParts[0];
 
@@ -296,9 +267,7 @@
         text: text
       };
 
-      // add at start
       reviews.unshift(newReview);
-      // keep a reasonable limit locally
       if(reviews.length > 200) reviews = reviews.slice(0,200);
       saveReviews(reviews);
       renderReviews();
@@ -306,7 +275,6 @@
       fb.style.color = 'var(--color-deep-green)';
       fb.textContent = 'Bedankt! Uw review is toegevoegd.';
       document.getElementById('review-form').reset();
-      // focus back to name for additional submissions
       setTimeout(()=>{ nameEl.focus(); }, 400);
     }
 

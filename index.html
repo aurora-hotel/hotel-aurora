@@ -8,12 +8,12 @@
   <meta name="description" content="Hotel Aurora — boutique hotel tussen bossen en kust. Verfijnde kamers, wellness en lokale gastronomie.">
 </head>
 <body>
-  <!-- Header (shared across pages) -->
+  <!-- Header (uniform navigation) -->
   <header class="header" id="site-header">
     <div class="container header-inner">
       <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Hotel Aurora</a></div>
       <nav class="nav" aria-label="Hoofdmenu">
-        <a href="index.html">Home</a>
+        <a href="index.html" aria-current="page">Home</a>
         <a href="kamers.html">Onze kamers</a>
         <a href="faciliteiten.html">Faciliteiten</a>
         <a href="team.html">Ons team</a>
@@ -24,24 +24,78 @@
     </div>
   </header>
 
-  <!-- HERO: full-width image allowed; text content inside .container -->
+  <!-- Booking bar (sticky, onder header) -->
+  <div id="booking-bar-wrap" aria-hidden="false">
+    <div class="booking-bar" role="region" aria-label="Boek uw verblijf" id="booking-bar">
+      <div class="container booking-inner">
+        <form id="booking-bar-form" class="booking-form" onsubmit="event.preventDefault(); bookingCheck();">
+          <div class="booking-row">
+            <div class="field">
+              <label for="bb-checkin" class="booking-label">Aankomst</label>
+              <input id="bb-checkin" type="date" class="input booking-input" aria-describedby="bb-msg" required />
+            </div>
+
+            <div class="field">
+              <label for="bb-checkout" class="booking-label">Vertrek</label>
+              <input id="bb-checkout" type="date" class="input booking-input" aria-describedby="bb-msg" required />
+            </div>
+
+            <div class="field">
+              <label for="bb-guests" class="booking-label">Gasten</label>
+              <select id="bb-guests" class="input booking-input" aria-describedby="bb-msg">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="bb-room" class="booking-label">Kamertype</label>
+              <select id="bb-room" class="input booking-input" aria-describedby="bb-msg">
+                <option value="comfort" selected>Comfort</option>
+                <option value="deluxe">Deluxe</option>
+                <option value="suite">Suite</option>
+              </select>
+            </div>
+
+            <div class="price-block" aria-hidden="false">
+              <div class="price-label">Vanaf</div>
+              <div id="bb-price" class="price">€119 / nacht</div>
+            </div>
+
+            <div class="cta-block">
+              <button type="submit" class="button primary booking-cta">Bekijk beschikbaarheid</button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Accessible inline feedback -->
+        <div id="bb-msg" class="booking-msg" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO: full-width image allowed, textual content in .container -->
   <section class="hero" aria-labelledby="hero-heading">
-    <!-- Afbeelding: ruime hotelomgeving met zachte ochtendmist en houten gevel in natuur -->
-    <img src="images/hero-ai.jpg" alt="Hotel Aurora: rustgevende gevel en tuin bij zonsopgang" class="hero-media" />
+    <!-- Afbeelding: ruime hotelomgeving -->
+    <!-- Beeld toont rustige buitenomgeving en hotelgevel bij zonsopgang -->
+    <img src="images/hero-ai.jpg" alt="Hotel Aurora: gevel en tuin bij zonsopgang" class="hero-media" />
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container">
-      <div style="max-width:720px; padding-top:4rem; padding-bottom:4rem;">
+      <div class="hero-content" style="padding-top:4rem; padding-bottom:4rem;">
         <h1 id="hero-heading">Hotel Aurora</h1>
         <p class="lead">Waar tijd vertraagt en natuur centraal staat — verfijnde kamers, een kleinschalige spa en eten met lokale producten. Een plek om te vertragen, te wandelen en te genieten van aandacht voor details.</p>
         <div class="btns" style="margin-top:1rem;">
-          <a class="button primary" href="#about">Ontdek het hotel</a>
-          <a class="button secondary" href="team.html">Bekijk het team</a>
+          <a class="button primary" href="kamers.html">Bekijk de kamers</a>
+          <a class="button secondary" href="faciliteiten.html">Faciliteiten</a>
           <a class="button ghost" href="gastenboek.html">Lees ervaringen</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OVER -->
+  <!-- Main content: overzicht en highlights -->
   <main>
     <section id="about" class="section">
       <div class="container">
@@ -49,7 +103,7 @@
         <h2 style="margin-top:.5rem;">Kalm. Ambachtelijk. Herstel.</h2>
         <div class="image-card" style="margin-top:1rem;">
           <div class="card-body">
-            <p class="prose">Gelegen aan de rand van een beschermd natuurgebied, verwelkomt Hotel Aurora gasten die rust zoeken zonder in te leveren op comfort. Onze kamers combineren natuurlijke materialen met moderne voorzieningen. Iedere ochtend serveren we een ontbijt met producten van lokale producenten — zorgvuldig geselecteerd door onze keukenbrigade.</p>
+            <p class="prose">Gelegen aan de rand van een beschermd natuurgebied verwelkomt Hotel Aurora gasten die rust zoeken zonder in te leveren op comfort. Onze kamers combineren natuurlijke materialen met moderne voorzieningen. Iedere ochtend serveren we een ontbijt met producten van lokale producenten — zorgvuldig geselecteerd door onze keukenbrigade.</p>
             <ul style="margin-top:1rem;">
               <li><strong>Gastvrijheid</strong> — persoonlijke service en aandacht voor uw wensen.</li>
               <li><strong>Kwaliteit</strong> — lokale ingrediënten, duurzame materialen en ambachtelijke verzorging.</li>
@@ -57,57 +111,54 @@
             </ul>
           </div>
           <figure class="card-media">
-            <!-- Afbeelding: warme hotelobby met hout, planten en zachte verlichting -->
+            <!-- Afbeelding: warme lobby met hout, planten en zachte verlichting -->
             <img src="images/lobby-ai.jpg" alt="Lobby van Hotel Aurora: houten accenten, zithoek en planten" class="media" />
-            <!-- Afbeelding toont de lichte, uitnodigende lobby met hout en zachte lampen -->
+            <!-- Afbeelding toont de uitnodigende lobby met hout en zachte lampen -->
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- Faciliteiten & ervaringen (kort overzicht met links naar de volledige faciliteiten-pagina) -->
+    <!-- Faciliteiten preview -->
     <section class="section facilities" aria-labelledby="facilities-heading">
       <div class="container">
         <div class="kicker">Faciliteiten</div>
-        <h2 id="facilities-heading" style="margin-top:.5rem;">Faciliteiten & Ervaringen</h2>
+        <h2 id="facilities-heading" style="margin-top:.5rem;">Faciliteiten & ervaringen</h2>
         <p class="prose" style="margin-top:1rem;">Een selectie van onze faciliteiten — bezoek de volledige faciliteitenpagina voor details, openingstijden en reserveringsinformatie.</p>
 
         <div class="grid three-up" style="margin-top:1rem;">
           <article class="card">
             <figure style="margin:0;">
-              <!-- Afbeelding: rustige spa met behandeltafels en natuurlijk licht -->
-              <img src="images/spa-ai.jpg" alt="Spa bij Hotel Aurora: behandelcabines, zachte kleuren en natuurlijk daglicht" class="media" />
-              <!-- Spa-afbeelding: behandelruimte met zachte kleuren -->
+              <!-- Afbeelding: spa -->
+              <img src="images/spa-ai.jpg" alt="Spa van Hotel Aurora: behandelruimte en rustgedeelte" class="media" />
             </figure>
             <div>
               <h3 style="margin:.5rem 0;">Wellness & Spa</h3>
-              <p class="lead" style="margin:0;">Kleinschalige spa met behandelingen op maat: ontspanningsmassage, sauna en rustruimte met uitzicht op het bos.</p>
+              <p class="lead" style="margin:0;">Kleinschalige spa met behandelingen op maat en rustruimtes met uitzicht op de natuur.</p>
               <a href="faciliteiten.html#wellness-heading" style="margin-top:.5rem;display:inline-block;">Meer over wellness →</a>
             </div>
           </article>
 
           <article class="card">
             <figure style="margin:0;">
-              <!-- Afbeelding: restaurant met fijne tafelsetting en lokale gerechten -->
-              <img src="images/dining-ai.jpg" alt="Restaurant van Hotel Aurora: lokaal geïnspireerde gerechten en warme sfeer" class="media" />
-              <!-- Dining-afbeelding: tafelsetting en gerechten -->
+              <!-- Afbeelding: restaurant -->
+              <img src="images/dining-ai.jpg" alt="Restaurant van Hotel Aurora: tafelsetting en lokale gerechten" class="media" />
             </figure>
             <div>
               <h3 style="margin:.5rem 0;">Restaurant & ontbijt</h3>
-              <p class="lead" style="margin:0;">Kleine kaart, seizoensgebonden menu's met producten uit de regio en een zorgvuldige wijnselectie.</p>
+              <p class="lead" style="margin:0;">Een seizoensgebonden kaart, zorgvuldig ontbijt en een kleine wijnselectie.</p>
               <a href="faciliteiten.html#dining-heading" style="margin-top:.5rem;display:inline-block;">Reserveer een tafel →</a>
             </div>
           </article>
 
           <article class="card">
             <figure style="margin:0;">
-              <!-- Afbeelding: buitenactiviteiten, wandelen, uitkijkpunt -->
-              <img src="images/activities-ai.jpg" alt="Buitenactiviteiten: wandelroutes en excursies nabij Hotel Aurora" class="media" />
-              <!-- Beelden van wandelingen en activiteiten in de omgeving -->
+              <!-- Afbeelding: activiteiten -->
+              <img src="images/activities-ai.jpg" alt="Activiteiten en wandelroutes nabij het hotel" class="media" />
             </figure>
             <div>
               <h3 style="margin:.5rem 0;">Activiteiten</h3>
-              <p class="lead" style="margin:0;">Geleide wandelingen, fietsen en natuurexcursies waarmee u de omgeving in alle rust ontdekt.</p>
+              <p class="lead" style="margin:0;">Geleide wandelingen, fietsen en kleinschalige excursies met lokale partners.</p>
               <a href="faciliteiten.html#experiences-heading" style="margin-top:.5rem;display:inline-block;">Bekijk activiteiten →</a>
             </div>
           </article>
@@ -115,7 +166,7 @@
       </div>
     </section>
 
-    <!-- Kamers (kort) -->
+    <!-- Kort kamers-preview -->
     <section class="section" aria-labelledby="rooms-preview">
       <div class="container">
         <div class="kicker">Kamers</div>
@@ -125,7 +176,6 @@
         <div class="grid three-up" style="margin-top:1rem;">
           <article class="card">
             <figure style="margin:0;">
-              <!-- Afbeelding: kamer sfeer -->
               <img src="images/lobby-ai.jpg" alt="Comfort Kamer sfeerbeeld met hout en warme verlichting" class="media" />
             </figure>
             <div>
@@ -140,7 +190,6 @@
 
           <article class="card">
             <figure style="margin:0;">
-              <!-- Afbeelding: deluxe sfeer -->
               <img src="images/spa-ai.jpg" alt="Deluxe kamer sfeer met zitje" class="media" />
             </figure>
             <div>
@@ -155,7 +204,6 @@
 
           <article class="card">
             <figure style="margin:0;">
-              <!-- Afbeelding: suite sfeer -->
               <img src="images/dining-ai.jpg" alt="Suite sfeerbeeld met ruime opzet" class="media" />
             </figure>
             <div>
@@ -171,37 +219,61 @@
       </div>
     </section>
 
-    <!-- Contact / nieuwsbrief -->
-    <section class="section" aria-labelledby="contact-heading">
-      <div class="container">
-        <div style="display:flex; gap:var(--space-lg); align-items:stretch; flex-wrap:wrap;">
-          <div style="flex:1 1 480px;">
-            <h3 id="contact-heading">Contact & Nieuwsbrief</h3>
-            <p class="lead">Meld u aan voor het laatste nieuws over seizoensmenu's, speciale arrangementen en lokale ervaringen. Geen marketingspam — alleen relevante uitnodigingen.</p>
-            <form class="form" id="newsletter-form" style="max-width:520px; margin-top:1rem;" onsubmit="event.preventDefault(); newsletterSubmit();">
-              <label for="newsletter-email">E-mail</label>
-              <input id="newsletter-email" class="input" type="email" required placeholder="naam@voorbeeld.nl" />
-              <div style="display:flex; gap:.75rem; margin-top:.5rem;">
-                <button class="button primary" type="submit">Aanmelden</button>
-                <button class="button ghost" type="button" onclick="document.getElementById('newsletter-email').value='';">Annuleren</button>
-              </div>
-              <div id="newsletter-msg" aria-live="polite" style="margin-top:.5rem;"></div>
-            </form>
-          </div>
+    <!-- (Andere secties zoals team, contact etc. zouden hier kunnen volgen) -->
 
-          <div style="flex:0 0 320px;">
-            <div class="card">
-              <h4 style="margin:0 0 .5rem 0;">Contactgegevens</h4>
-              <p style="margin:0;">Hotel Aurora<br/>Dennenlaan 12<br/>1234 AB Kustplaats<br/>Tel: +31 20 123 4567<br/>E-mail: <a href="mailto:info@hotel-aurora.example">info@hotel-aurora.example</a></p>
-            </div>
-          </div>
+    <!-- REVIEWS: preview — helemaal onderaan vóór footer -->
+    <section class="section" aria-labelledby="reviews-heading" id="reviews-preview-section" style="margin-top:var(--space-lg);">
+      <div class="container">
+        <div class="kicker">Ervaringen</div>
+        <h2 id="reviews-heading" style="margin-top:.5rem;">Wat gasten over ons zeggen</h2>
+        <p class="prose" style="margin-top:1rem;">Eerlijke, recente berichten van gasten. Hieronder een selectie van recente ervaringen — lees alle recensies in ons gastenboek.</p>
+
+        <div class="reviews-preview" style="margin-top:var(--space); display:grid; gap:var(--space-lg); grid-template-columns: repeat(3,1fr);">
+          <!-- Review 1 -->
+          <article class="card review-card" tabindex="0" aria-label="Review van Sofie B.">
+            <header style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong>Sofie B.</strong>
+                <div class="meta" style="color:var(--color-muted); font-size:.95rem; margin-top:.2rem;">18 jan 2026</div>
+              </div>
+              <div class="rating" aria-hidden="true">★★★★★</div>
+            </header>
+            <p style="margin-top:.6rem;">Prachtig verblijf: rustige ligging en uitstekende service. Het ontbijt met lokale producten was bijzonder smaakvol.</p>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="card review-card" tabindex="0" aria-label="Review van Mark v.">
+            <header style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong>Mark v.</strong>
+                <div class="meta" style="color:var(--color-muted); font-size:.95rem; margin-top:.2rem;">10 jan 2026</div>
+              </div>
+              <div class="rating" aria-hidden="true">★★★★☆</div>
+            </header>
+            <p style="margin-top:.6rem;">Charmant hotel met persoonlijke service. Kamer en bedden zeer comfortabel — fijne uitvalsbasis voor wandelingen.</p>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="card review-card" tabindex="0" aria-label="Review van Lieke K.">
+            <header style="display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <strong>Lieke K.</strong>
+                <div class="meta" style="color:var(--color-muted); font-size:.95rem; margin-top:.2rem;">21 dec 2025</div>
+              </div>
+              <div class="rating" aria-hidden="true">★★★★★</div>
+            </header>
+            <p style="margin-top:.6rem;">Perfecte combinatie van rust en kwaliteit. De spa is kleinschalig maar heel verzorgd — aanrader.</p>
+          </article>
         </div>
 
+        <div style="margin-top:var(--space);">
+          <a class="button ghost" href="gastenboek.html">Lees alle ervaringen</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer (shared) -->
+  <!-- Footer -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex; gap:var(--space-lg); flex-wrap:wrap; align-items:flex-start; padding-top:1.25rem; padding-bottom:1.25rem;">
       <div style="flex:1 1 360px;">
@@ -211,46 +283,132 @@
       <div style="flex:1 1 240px;">
         <h5 style="margin:.25rem 0;">Snel naar</h5>
         <ul style="list-style:none; padding:0; margin:0;">
-          <li><a href="index.html">Home</a></li>
           <li><a href="kamers.html">Onze kamers</a></li>
           <li><a href="faciliteiten.html">Faciliteiten</a></li>
           <li><a href="team.html">Ons team</a></li>
-          <li><a href="vacatures.html">Vacatures</a></li>
           <li><a href="gastenboek.html">Gastenboek</a></li>
         </ul>
       </div>
       <div style="flex:1 1 240px;">
-        <h5 style="margin:.25rem 0;">Openingstijden receptie</h5>
-        <p style="margin:0;">Dagelijks 07:30 — 21:30</p>
+        <h5 style="margin:.25rem 0;">Contact</h5>
+        <p style="margin:0;">info@hotel-aurora.example<br/>+31 20 123 4567</p>
       </div>
     </div>
   </footer>
 
+  <!-- Inline JavaScript: sticky header shadow + booking bar logic -->
   <script>
-    // Sticky header shadow on scroll
     (function(){
+      // Sticky header shadow handling & set CSS variable for booking bar top
       const header = document.getElementById('site-header');
-      const onScroll = () => {
-        if (window.scrollY > 10) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
+      const bookingBar = document.getElementById('booking-bar');
+      const setHeaderOffset = () => {
+        const h = header.getBoundingClientRect().height;
+        document.documentElement.style.setProperty('--header-height', h + 'px');
+        // apply to booking-bar top if needed via CSS var
+        if(bookingBar) bookingBar.style.top = h + 'px';
       };
-      window.addEventListener('scroll', onScroll, {passive:true});
-      onScroll();
-    })();
 
-    // Newsletter fake submit
-    function newsletterSubmit(){
-      const email = document.getElementById('newsletter-email');
-      const msg = document.getElementById('newsletter-msg');
-      if(!email.checkValidity()){
-        msg.textContent = 'Voer een geldig e-mailadres in.';
-        msg.style.color = 'crimson';
-        return;
+      const onScroll = () => {
+        header.classList.toggle('scrolled', window.scrollY > 10);
+      };
+
+      window.addEventListener('resize', setHeaderOffset);
+      window.addEventListener('load', setHeaderOffset);
+      window.addEventListener('scroll', onScroll, {passive:true});
+      setHeaderOffset();
+
+      // Booking bar price logic and validation
+      const priceEls = {
+        comfort: 119,
+        deluxe: 159,
+        suite: 219
+      };
+
+      const checkinEl = document.getElementById('bb-checkin');
+      const checkoutEl = document.getElementById('bb-checkout');
+      const guestsEl = document.getElementById('bb-guests');
+      const roomEl = document.getElementById('bb-room');
+      const priceDisplay = document.getElementById('bb-price');
+      const msgEl = document.getElementById('bb-msg');
+
+      // Helper: parse yyyy-mm-dd to Date at local midnight
+      function parseDate(s){
+        if(!s) return null;
+        const [y,m,d] = s.split('-').map(Number);
+        return new Date(y, m-1, d);
       }
-      msg.style.color = 'var(--color-deep-green)';
-      msg.textContent = 'Bedankt! U bent aangemeld voor onze nieuwsbrief.';
-      setTimeout(()=>{ email.value = ''; }, 1200);
-    }
+
+      function isWeekendArrival(date){
+        if(!date) return false;
+        const dow = date.getDay(); // 0 Sun .. 6 Sat
+        return dow === 5 || dow === 6; // Fri or Sat
+      }
+
+      function calcPrice(){
+        const room = roomEl.value;
+        const base = priceEls[room] || priceEls.comfort;
+        const guests = parseInt(guestsEl.value, 10) || 1;
+
+        // weekend surcharge if arrival on Fri/Sat
+        const arrival = parseDate(checkinEl.value);
+        const weekend = isWeekendArrival(arrival);
+        let price = base;
+        if(weekend) price = Math.round(price * 1.10);
+
+        // extra guests above 1
+        if(guests > 1){
+          price += (guests - 1) * 15;
+        }
+
+        // Format
+        priceDisplay.textContent = `Vanaf €${price} / nacht`;
+        return price;
+      }
+
+      // Validate date logic; returns message or empty string
+      function validateDates(){
+        msgEl.textContent = '';
+        msgEl.style.color = '';
+        const inStr = checkinEl.value;
+        const outStr = checkoutEl.value;
+        if(!inStr || !outStr) {
+          return 'Vul zowel aankomst- als vertrekdatum in.';
+        }
+        const inDate = parseDate(inStr);
+        const outDate = parseDate(outStr);
+        if(!inDate || !outDate) return 'Kies geldige datums.';
+        if(outDate <= inDate) return 'Vertrek moet na aankomst liggen.';
+        return '';
+      }
+
+      // Update price on changes
+      [checkinEl, checkoutEl, guestsEl, roomEl].forEach(el => {
+        el.addEventListener('change', () => {
+          calcPrice();
+          msgEl.textContent = '';
+        });
+      });
+
+      // Booking check (on click)
+      window.bookingCheck = function(){
+        const validation = validateDates();
+        if(validation){
+          msgEl.style.color = 'crimson';
+          msgEl.textContent = validation;
+          return;
+        }
+
+        const price = calcPrice();
+        msgEl.style.color = 'var(--color-deep-green)';
+        msgEl.innerHTML = `Indicatie: <strong>€${price}</strong> per nacht — neem contact op voor actuele beschikbaarheid. <a href="beschikbaarheid.html" style="margin-left:.5rem;">Bekijk kalender</a>`;
+        // optional visual highlight
+        msgEl.scrollIntoView({behavior:'smooth', block:'nearest'});
+      };
+
+      // Initialize price display
+      calcPrice();
+    })();
   </script>
 </body>
 </html>

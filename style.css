@@ -722,3 +722,33 @@ a:focus, button:focus, input:focus, textarea:focus {
   margin: var(--space) 0; /* eerder var(--space-lg) — nu smaller */
   border-radius: 2px;
 }
+/* ---------- Force full-width body text inside .container ----------
+   Plaats dit onderaan style.css om te garanderen dat alle
+   paragrafen, 'prose' en 'lead' teksten de volledige containerbreedte
+   gebruiken en links uitgelijnd zijn.
+*/
+.container,
+.container > * { box-sizing: border-box; }
+
+.container .prose,
+.container p,
+.container .lead,
+.lead,
+.card p,
+.card .prose,
+.feature-body .prose,
+.feature-body p,
+.room-meta p,
+.kicker + h1 + .prose,
+.hero .hero-content .lead,
+.hero .hero-content p {
+  max-width: 100% !important;   /* geen leesbreedte-limiet zoals 65ch */
+  width: 100% !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* behoud leesbaarheid voor zeer grote schermen:
+   als je later een maximum voor regelbreedte wilt, wijzig 100% naar
+   max-width: 75rem; (of verwijder de !important-regel) */

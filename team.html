@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://hotel-aurora.github.io/team.html">
   <meta property="og:url" content="https://hotel-aurora.github.io/team.html">
   <style>
-    /* Team page small styles */
+    /* Kleine pagina-specific styles */
     .team-grid { display:grid; gap:var(--space-lg); grid-template-columns: repeat(3,1fr); }
     @media (max-width:900px){ .team-grid { grid-template-columns:1fr; } }
     .card .avatar-wrap { display:flex; align-items:center; gap:var(--space); }
@@ -19,7 +19,7 @@
   </style>
 </head>
 <body>
-  <!-- Header (uniform) -->
+  <!-- Header (uniform across site) -->
   <header class="header" id="site-header">
     <div class="container header-inner">
       <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">Hotel Aurora</a></div>
@@ -35,11 +35,11 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero" aria-labelledby="team-hero">
     <!-- Afbeelding: warme hotellobby of team-sfeer -->
-    <!-- Afbeelding toont de warme lobby en gastvrije sfeer -->
-    <img src="images/teamheader-ai.jpg" alt="Lobby en team van Hotel Aurora: uitnodigende sfeer" class="hero-media" />
+    <!-- Beeld toont de warme lobby met zithoek en planten -->
+    <img src="images/lobby-ai.jpg" alt="Lobby van Hotel Aurora: warme ruimte met hout en planten" class="hero-media" />
     <div class="container" style="position:relative; z-index:2; padding:var(--space-lg) 0;">
       <div class="hero-content">
         <h1 id="team-hero">Ons team</h1>
@@ -60,8 +60,8 @@
           <article class="card" role="article" aria-label="Hotelmanager">
             <div style="display:flex; gap:var(--space); align-items:flex-start;">
               <div class="avatar-wrap">
-                <!-- Afbeelding: portret hotelmanager -->
-                <img class="avatar" src="images/hotelmanager-ai.jpg" alt="Portret van de hotelmanager van Hotel Aurora" />
+                <!-- Afbeelding: portret hotelmanager (vervang door echte asset) -->
+                <img class="avatar" src="images/lobby-ai.jpg" alt="Hotelmanager van Hotel Aurora" />
               </div>
               <div class="avatar-meta">
                 <h3 style="margin:0;">Hotelmanager</h3>
@@ -75,8 +75,8 @@
           <article class="card" role="article" aria-label="Receptioniste">
             <div style="display:flex; gap:var(--space); align-items:flex-start;">
               <div class="avatar-wrap">
-                <!-- Afbeelding: receptioniste bij balie -->
-                <img class="avatar" src="images/receptioniste-ai.jpg" alt="Receptioniste van Hotel Aurora bij de balie" />
+                <!-- Afbeelding: receptioniste (vervang door echte asset) -->
+                <img class="avatar" src="images/lobby-ai.jpg" alt="Receptioniste van Hotel Aurora" />
               </div>
               <div class="avatar-meta">
                 <h3 style="margin:0;">Receptioniste</h3>
@@ -86,12 +86,28 @@
             </div>
           </article>
 
+          <!-- Poolboy (nieuw toegevoegd) -->
+          <article class="card" role="article" aria-label="Poolboy">
+            <div style="display:flex; gap:var(--space); align-items:flex-start;">
+              <div class="avatar-wrap">
+                <!-- Afbeelding: tijdelijke afbeelding voor poolboy (vervang door geschikt portret) -->
+                <!-- Beeld toont een teamlid in buitenomgeving; vervang door images/poolboy-ai.jpg indien beschikbaar -->
+                <img class="avatar" src="images/lobby-ai.jpg" alt="Poolboy van Hotel Aurora" />
+              </div>
+              <div class="avatar-meta">
+                <h3 style="margin:0;">Poolboy</h3>
+                <div style="color:var(--color-muted); font-size:.95rem;">Zwembad & buitenonderhoud</div>
+                <p style="margin-top:.5rem;">Verantwoordelijk voor het onderhoud van buitenterreinen en zwembad‑onderhoud; zorgt dat buitenruimtes uitnodigend en veilig blijven.</p>
+              </div>
+            </div>
+          </article>
+
           <!-- Klusjesman -->
           <article class="card" role="article" aria-label="Klusjesman">
             <div style="display:flex; gap:var(--space); align-items:flex-start;">
               <div class="avatar-wrap">
-                <!-- Afbeelding: klusjesman tijdens onderhoud -->
-                <img class="avatar" src="images/klusjesman-ai.jpg" alt="Klusjesman van Hotel Aurora tijdens onderhoudswerkzaamheden" />
+                <!-- Afbeelding: klusjesman (vervang door echte asset) -->
+                <img class="avatar" src="images/lobby-ai.jpg" alt="Klusjesman van Hotel Aurora" />
               </div>
               <div class="avatar-meta">
                 <h3 style="margin:0;">Klusjesman</h3>
@@ -105,13 +121,13 @@
           <article class="card" role="article" aria-label="Kok">
             <div style="display:flex; gap:var(--space); align-items:flex-start;">
               <div class="avatar-wrap">
-                <!-- Afbeelding: kok presenteert gerecht -->
-                <img class="avatar" src="images/kok-ai.jpg" alt="Kok van Hotel Aurora presenteert een gerecht" />
+                <!-- Afbeelding: kok (vervang door echte asset) -->
+                <img class="avatar" src="images/dining-ai.jpg" alt="Kok van Hotel Aurora" />
               </div>
               <div class="avatar-meta">
                 <h3 style="margin:0;">Kok</h3>
                 <div style="color:var(--color-muted); font-size:.95rem;">Keuken & menu</div>
-                <p style="margin-top:.5rem;">Bereidt eenvoudige, smaakvolle gerechten met aandacht voor lokale producten en seizoensproducten.</p>
+                <p style="margin-top:.5rem;">Bereidt smaakvolle gerechten met aandacht voor lokale producten en seizoensaanbod.</p>
               </div>
             </div>
           </article>
@@ -120,8 +136,8 @@
           <article class="card" role="article" aria-label="Picollo">
             <div style="display:flex; gap:var(--space); align-items:flex-start;">
               <div class="avatar-wrap">
-                <!-- Afbeelding: picollo helpt met bagage -->
-                <img class="avatar" src="images/picollo-ai.jpg" alt="Picollo van Hotel Aurora helpt gasten met bagage" />
+                <!-- Afbeelding: picollo (vervang door echte asset) -->
+                <img class="avatar" src="images/lobby-ai.jpg" alt="Picollo van Hotel Aurora" />
               </div>
               <div class="avatar-meta">
                 <h3 style="margin:0;">Picollo</h3>
@@ -131,11 +147,11 @@
             </div>
           </article>
         </div>
-
       </div>
     </section>
   </main>
 
+  <!-- Footer (consistent) -->
   <footer class="site-footer" role="contentinfo">
     <div class="container" style="display:flex; gap:var(--space-lg); flex-wrap:wrap; align-items:flex-start; padding-top:1.25rem; padding-bottom:1.25rem;">
       <div style="flex:1 1 360px;">
@@ -149,7 +165,6 @@
           <li><a href="kamers.html">Onze kamers</a></li>
           <li><a href="faciliteiten.html">Faciliteiten</a></li>
           <li><a href="vacatures.html">Vacatures</a></li>
-          <li><a href="gastenboek.html">Gastenboek</a></li>
         </ul>
       </div>
       <div style="flex:1 1 240px;">
@@ -158,15 +173,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Sticky header
-    (function(){
-      const header = document.getElementById('site-header');
-      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
-      window.addEventListener('scroll', onScroll, {passive:true});
-      onScroll();
-    })();
-  </script>
 </body>
 </html>
